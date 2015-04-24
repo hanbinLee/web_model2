@@ -29,5 +29,28 @@
 		<c:set var="str" value="우ha하"/>
 		${str } , <c:out value="${str}"/> , <c:out value="str" /> 
 	</div>
+	
+	<br/><br/>
+	
+	<div>
+		<jsp:useBean id="name" class="jstl.Name"/>
+		<c:set target="${name }" property="lastName" value="홍"/>
+		<c:set target="${name }" property="firstName" value="${'길동' }"/>
+	</div>
+	
+	<div>
+		성 : <c:out value="${name.lastName }" /><br/>
+		이름: ${name.firstName}<br/>
+	</div>
+	
+	<div>
+		<c:remove var="str"/>
+		STR : <c:out value="${str }"/>
+	</div>
+	
+	<c:catch var="e">
+	<%=10/0 %>
+	</c:catch>
+	<c:out value="${e }"/>
 </body>
 </html>
