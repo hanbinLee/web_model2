@@ -9,13 +9,91 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-  
   <servlet>
-  	<servlet-name>SampleController</servlet-name>
-  	<servlet-class>mvc01.SampleController</servlet-class>
+    <servlet-name>SampleController</servlet-name>
+    <servlet-class>mvc01.SampleController</servlet-class>
   </servlet>
   <servlet-mapping>
-  	<servlet-name>SampleController</servlet-name>
-  	<url-pattern>/mvc01/SampleController</url-pattern>
+    <servlet-name>SampleController</servlet-name>
+    <url-pattern>/mvc01/SampleController</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>Sample</servlet-name>
+    <servlet-class>mvc02.Sample</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Sample</servlet-name>
+    <url-pattern>/mvc02/Sample</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>SampleCtn</servlet-name>
+    <servlet-class>mvc03.SampleCtn</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SampleCtn</servlet-name>
+    <url-pattern>/mvc03/SampleCtn</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Controller</servlet-name>
+    <servlet-class>mvc04.Controller</servlet-class>
+    <init-param>
+      <param-name>configFile</param-name>
+      <param-value>C:\Users\KOSTA_07_002\Documents\workspace\Example\WebContent\WEB-INF\command.properties</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Controller</servlet-name>
+    <url-pattern>/mvc04/Controller</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>FrontController</servlet-name>
+    <servlet-class>mvc05.FrontController</servlet-class>
+    <init-param>
+      <param-name>configURI</param-name>
+      <param-value>\WEB-INF\commandURI.properties</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FrontController</servlet-name>
+    <url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+  
+  <!-- 하나의 맵핑은 하나의 서블릿만 가질수 있다.
+  <servlet>
+  	<servlet-name>ABC</servlet-name>
+  	<servlet-class>test.ABC</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ABC</servlet-name>
+  	<url-pattern>/test/ABC</url-pattern>
+  </servlet-mapping>
+   
+   <servlet>
+  	<servlet-name>ABC</servlet-name>
+  	<servlet-class>test.ABC</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ABC</servlet-name>
+  	<url-pattern>/ABC</url-pattern>
+  </servlet-mapping>
+ 
+   <servlet>
+  	<servlet-name>ABC</servlet-name>
+  	<servlet-class>test.ABC</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ABC</servlet-name>
+  	<url-pattern>/aaa/bb/ccc/xxx</url-pattern>
+  </servlet-mapping>
+   
+  <servlet>
+  	<servlet-name>ABC</servlet-name>
+  	<servlet-class>test.ABC</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ABC</servlet-name>
+  	<url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+  -->
+  
 </web-app>
