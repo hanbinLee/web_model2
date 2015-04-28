@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.sun.org.apache.bcel.internal.classfile.Code;
+
 public class FrontController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private HashMap<String,Object> commandMap=new HashMap<String,Object>();
@@ -75,19 +77,19 @@ public class FrontController extends HttpServlet {
 	}
 	
 	protected void proRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-//			String cmd=request.getParameter("cmd");
-//			String view="";
-//			
-//			if(cmd!=null){
-//				Command com=(Command)commandMap.get(cmd);
-//				try {
-//					view=com.proRequest(request, response);
-//				} catch (Throwable e) {
-//					e.printStackTrace();
-//					System.out.println("proRequest error");
-//				}
-//				request.getRequestDispatcher(view).forward(request, response);
-//			}
+			String cmd=request.getRequestURI().substring(request.getContextPath().length());
+			String view="";
+			
+			if(cmd!=null){
+				Command com=(Command)commandMap.get(cmd);
+				try {
+					view=com.proRequest(request, response);
+				} catch (Throwable e) {
+					e.printStackTrace();
+					System.out.println("proRequest error");
+				}
+				request.getRequestDispatcher(view).forward(request, response);
+			}
 		
 		
 	}

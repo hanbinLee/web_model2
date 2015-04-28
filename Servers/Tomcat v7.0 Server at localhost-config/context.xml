@@ -29,5 +29,21 @@
     <!--
     <Valve className="org.apache.catalina.valves.CometConnectionManagerValve" />
     -->
+    <!--
+    	name:식별자 , auth 톰캣컨테이너에서 작업을(DB)하겠다고 선언 , type:타입 
+    	driverClassName : 오라클 드라이버 이름 , maxActive : 최대 풀 개수
+    	maxIdle : 현재 접속이 없더라도 실제 연결할수 있는 개수
+    	maxWait: 커넥션이 없을경우 0이면 error , -1 이면무한대 , 1000 이면 1초 기다림
+    -->
+    <Resource name="jdbc/mvcDB"  
+    			  auth="Container"
+	              type="javax.sql.DataSource" 
+	              driverClassName="oracle.jdbc.driver.OracleDriver"
+	              url="jdbc:oracle:thin:@localhost:1521:xe"
+	              username="jsp" 
+	              password="tiger" 
+	              maxActive="20" 
+	              maxIdle="10"
+	              maxWait="-1"/>
 
 </Context>
