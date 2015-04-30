@@ -7,13 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>우편번호 검색</title>
-<script type="text/javascript">
-	function writeZipcode(code){
-	//	alert(code);
-		opener.memberForm.zipcode.value=code;
-		self.close();
-	}
-</script>
+<script type="text/javascript" src="script.js"></script>
 </head>
 <body>
 	<c:set var="root" value="${pageContext.request.contextPath }"/>
@@ -30,9 +24,10 @@
 				
 				<c:forEach var="list" items="${list }">
 					<div align="center">
-						<c:set var="code" value="${list.zipcode }${list.sido }${list.gugun }${list.dong }${list.ri }${list.bunji}"/>
-						<a href="javascript:writeZipcode('${code }')">
-							<c:out value="${code}"/>
+						<c:set var="code" value="${list.zipcode }"/>
+						<c:set var="code2" value="${list.sido }${list.gugun }${list.dong }${list.ri }${list.bunji}"/>
+						<a href="javascript:writeZipcode('${code }','${code2}')">
+							<c:out value="${code}${code2 }"/>
 						</a>
 					</div>	
 					<br/>

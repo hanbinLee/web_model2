@@ -5,17 +5,26 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>로그아웃</title>
+<title>Update Ok</title>
 </head>
 <body>
-	<c:remove var="id" scope="session"/>
-	<c:remove var="memberLevel" scope="session"/>
-	
 	<c:set var="root" value="${pageContext.request.contextPath }"/>
 	
-	<script type="text/javascript">
-		alert("로그아웃 되었습니다.");
-		location.href="${root}/member/login.do";
-	</script>
+	<c:choose>
+		<c:when test="${check==1 }">
+			<script type="text/javascript">
+				alert("수정완료");
+				location.href="${root}/member/main.do";
+			</script>
+		</c:when>
+		
+		<c:otherwise>
+			<script type="text/javascript">
+				alert("수정실패");
+				location.href="${root}/member/update.do";
+			</script>
+		</c:otherwise>
+	</c:choose>
+	
 </body>
 </html>

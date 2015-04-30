@@ -5,17 +5,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>로그아웃</title>
+<title>Board Start</title>
+<script type="text/javascript" src="script.js"></script>
+	<link href="style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-	<c:remove var="id" scope="session"/>
-	<c:remove var="memberLevel" scope="session"/>
+	<c:set var="root" value="${pageContext.request.contextPath }" />
 	
-	<c:set var="root" value="${pageContext.request.contextPath }"/>
-	
-	<script type="text/javascript">
-		alert("로그아웃 되었습니다.");
-		location.href="${root}/member/login.do";
-	</script>
+	<a href="${root }/guest/write.do">방명록</a>
 </body>
 </html>

@@ -40,6 +40,13 @@ function searchZipcode(root){
 	window.open(url,"","width=250,height=150");
 }
 
+function writeZipcode(code,code2){
+	//	alert(code);
+		opener.memberForm.zipcode.value=code;
+		opener.memberForm.address.value=code2;
+		self.close();
+	}
+
 
 
 

@@ -5,11 +5,26 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="style.css"/>
 <title>Start</title>
 </head>
 <body>
 	<c:set var="root" value="${pageContext.request.contextPath }"/>
 	<c:out value="${root }"/><br/>
-	<a href="${root }/member/register.do">회원가입</a>
+	
+	<c:if test="${memberLevel==null }">
+		<a href="${root }/member/register.do">회원가입</a>
+		<a href="${root }/member/login.do">로그인</a>
+	</c:if>
+	
+	<c:if test="${memberLevel!=null }">
+		<a href="${root }/member/logout.do">로그아웃</a>
+		<a href="${root }/member/update.do?id=${id}">회원수정</a>
+		<a href="${root }/member/delete.do">회원탈퇴</a>
+		
+		<c:if test="${memberLevel=='AA' }">
+			<a href="">관리자</a>
+		</c:if>
+	</c:if>
 </body>
 </html>
