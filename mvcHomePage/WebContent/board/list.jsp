@@ -67,7 +67,7 @@
 			<c:set var="pageCount" value="${count/boardSize+(count%boardSize==0 ? 0 : 1)}"/>
 			<fmt:parseNumber var="rs" value="${(currentPage-1)/pageBlock }" integerOnly="true"/>
 			<c:set var="startPage" value="${rs*pageBlock+1 }"/>
-			<c:set var="endPage" value="${startPage*pageBlock-1 }"/>
+			<c:set var="endPage" value="${startPage+pageBlock-1 }"/>
 			
 			<c:if test="${endPage > pageCount  }">
 				<c:set var="endPage" value="${pageCount }"/>
