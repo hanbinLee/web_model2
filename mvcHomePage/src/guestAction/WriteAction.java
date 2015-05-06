@@ -25,18 +25,34 @@ public class WriteAction implements CommandAction{
 		int currentPage=Integer.parseInt(pageNumber);
 		
 		//한페이지당 보여질 게시물 수
-		int boardSize=10;
+		int boardSize=3;
+		
+		//페이지 블록 만약 3이면 [1]..[3]  , [4]..[6]
+ 		int pageBlock=3;
 		
 		//시작페이지,끝페이지
-		int startPage=(currentPage-1)*boardSize+1;
-		int endPage=currentPage*boardSize;
+	//	int startPage=(int)((currentPage-1)/pageBlock)+1;
+		int startPage=currentPage;
+ 		int endPage=startPage+pageBlock-1;
 		
 		ArrayList<GuestDto> guestList=null;
 		if(count>0){
-			guestList=GuestDao.getInstance().getGuestList(startPage,endPage);
+			guestList=GuestDao.getInstance().getGuestList(currentPage*boardSize-2,currentPage*boardSize);
 		}
 		
-		System.out.println("size:" + guestList.size());
+		request.setAttribute("count", count); //총 레코드수
+		request.setAttribute("guestList",guestList); //페이지당 게시물 수 
+		request.setAttribute("currentPage", currentPage); //현재 페이지
+		request.setAttribute("boardSize", boardSize); //페이지당 게시물 갯수
+		request.setAttribute("startPage",startPage); 
+		request.setAttribute("endPage", endPage);
+		request.setAttribute("pageBlock", pageBlock);
+		
+		//System.out.println("count : " + count);
+		System.out.println("startPage : " + startPage);
+		System.out.println("endPage : " + endPage);
+		//System.out.println("List size:" + guestList.size());
+		
 		return "/guest/write.jsp";
 	}	
 }
