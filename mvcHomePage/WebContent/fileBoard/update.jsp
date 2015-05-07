@@ -10,7 +10,7 @@
 </head>
 <body>
 	<c:set var="root" value="${pageContext.request.contextPath }" />
-	<form action="${root}/board/updateOk.do" method="post" onsubmit="return checkForm()">
+	<form action="${root}/fileBoard/updateOk.do" method="post" onsubmit="return checkForm()">
 		<input type="hidden" name="boardNumber" value="${board.boardNumber }"/>
 		<input type="hidden" name="pageNumber" value="${pageNumber}"/>
 		
@@ -54,7 +54,7 @@
 		<div class="line" style="width:598px; border-width:2px; text-align:center;">
 			<input type="submit" value="글수정"/>
 			<input type="reset" value="취소"/>
-			<input type="button" value="목록보기" onclick="location.href='${root}/board/list.do?pageNumber=${pageNumber}'">
+			<input type="button" value="목록보기" onclick="location.href='${root}/fileBoard/list.do?pageNumber=${pageNumber}'">
 		</div>
 	</form>
 </body>

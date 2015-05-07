@@ -1,12 +1,12 @@
-package boardAction;
+package fileBoardAction;
 
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import boardModel.BoardDao;
-import boardModel.BoardDto;
+import fileBoardModel.BoardDao;
+import fileBoardModel.BoardDto;
 import controller.CommandAction;
 
 public class ListAction implements CommandAction{
@@ -38,6 +38,6 @@ public class ListAction implements CommandAction{
 		request.setAttribute("currentPage", currentPage);
 		request.setAttribute("boardList", boardList);
 		
-		return "/board/list.jsp";
+		return "/fileBoard/list.jsp";
 	} 
 }

@@ -10,7 +10,7 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<script type="text/javascript">
 		function replyFun(root,boardNumber,groupNumber,sequenceNumber,sequenceLevel,pageNumber){
-			var url=root + "/board/write.do?boardNumber=" + boardNumber;
+			var url=root + "/fileBoard/write.do?boardNumber=" + boardNumber;
 			url += "&groupNumber=" + groupNumber + "&sequenceNumber=" + sequenceNumber;
 			url += "&sequenceLevel=" + sequenceLevel + "&pageNumber=" + pageNumber;
 			
@@ -20,7 +20,7 @@
 		}
 		
 		function deleteFun(root,boardNumber,pageNumber){
-			var url=root + "/board/delete.do?boardNumber="+boardNumber+"&pageNumber="+pageNumber;
+			var url=root + "/fileBoard/delete.do?boardNumber="+boardNumber+"&pageNumber="+pageNumber;
 			
 			//alert(url);
 			
@@ -28,7 +28,7 @@
 		}
 		
 		function updateFun(root,boardNumber,pageNumber){
-			var url=root + "/board/update.do?boardNumber="+boardNumber+"&pageNumber="+pageNumber;
+			var url=root + "/fileBoard/update.do?boardNumber="+boardNumber+"&pageNumber="+pageNumber;
 			
 			//alert(url);
 			location.href=url;
@@ -59,12 +59,19 @@
 			<td valign="top"  height="200" colspan="3">${board.content }</td>
 		</tr>
 		
+		<c:if test="${board.fileName != null }">
+			<tr>
+				<td align="center"  height="20" width="125">파일명</td>
+				<td colspan="3"><a href="${root }/fileBoard/downLoad.do?boardNumber=${board.boardNumber}">${board.fileName }</a></td>
+			</tr>
+		</c:if>
+		
 		<tr>
 			<td height="30" colspan="4" align="center">
 				<input type="button" value="글수정" onclick="updateFun('${root}' ,'${board.boardNumber}' , '${pageNumber}')" />
 				<input type="button" value="글삭제" onclick="deleteFun('${root}' , '${board.boardNumber}' , '${pageNumber}' )"/>
 				<input type="button" value="답글" onclick="replyFun( '${root}' , '${board.boardNumber }' , '${board.groupNumber }' , '${board.sequenceNumber }' , '${board.sequenceLevel }' , '${pageNumber}' )"/>
-				<input type="button" value="글목록" onclick="location.href='${root}/board/list.do?pageNumber=${pageNumber}' "/>
+				<input type="button" value="글목록" onclick="location.href='${root}/fileBoard/list.do?pageNumber=${pageNumber}' "/>
 			</td>
 		</tr>
 	</table>

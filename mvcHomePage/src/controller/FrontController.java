@@ -95,8 +95,7 @@ public class FrontController extends HttpServlet{
 			e.printStackTrace();
 		}
 		//System.out.println("viewPage : " + viewPage);
-		
-		request.getRequestDispatcher(viewPage).forward(request, response);
+		if(viewPage !=null) request.getRequestDispatcher(viewPage).forward(request, response);
 	}	
 	
 }

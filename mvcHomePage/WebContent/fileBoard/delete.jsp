@@ -11,7 +11,7 @@
 </head>
 <body>
 	<c:set var="root" value="${pageContext.request.contextPath }"/>
-	<form method="post" action="${root}/board/deleteOk.do">
+	<form method="post" action="${root}/fileBoard/deleteOk.do">
 		<input type="hidden" name="boardNumber" value="${boardNumber }"/>
 		<input type="hidden" name="pageNumber" value="${pageNumber }"/>
 		<table border="1" width="300" cellpadding="2" cellspacing="0" align="center">
@@ -30,7 +30,7 @@
 			<tr>
 				<td align="center">
 					<input type="submit" value="글삭제"/>
-					<input type="button" value="목록보기" onclick="location.href='${root}/board/list.do?pageNumber=${pageNumber}'">
+					<input type="button" value="목록보기" onclick="location.href='${root}/fileBoard/list.do?pageNumber=${pageNumber}'">
 				</td>
 			</tr>
 		</table>

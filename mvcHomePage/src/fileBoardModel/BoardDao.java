@@ -1,4 +1,4 @@
-package boardModel;
+package fileBoardModel;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import dataBase.ConnectionProvider;
 import dataBase.JdbcUtil;
@@ -23,25 +24,28 @@ public class BoardDao {
 		PreparedStatement pstmt=null;
 		
 		this.writeNumber(conn , board);
-		
 		try{
 			conn=ConnectionProvider.getConnection();
 			String sql="insert into board values(board_board_number_seq.nextval,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 			pstmt=conn.prepareStatement(sql);
-			pstmt.setString(1	, board.getWriter());
-			pstmt.setString(2, board.getSubject());
-			pstmt.setString(3, board.getEmail());
-			pstmt.setString(4, board.getContent());
-			pstmt.setString(5, board.getPassword());
+			
+			HashMap<String,String> dataMap=board.getDataMap();
+			
+		//	System.out.println("sequenceNumber : " + dataMap.get("sequenceNumber"));
+			pstmt.setString(1	, dataMap.get("writer"));
+			pstmt.setString(2, dataMap.get("subject"));
+			pstmt.setString(3, dataMap.get("email"));
+			pstmt.setString(4, dataMap.get("content"));
+			pstmt.setString(5, dataMap.get("password"));
 			pstmt.setTimestamp(6, new Timestamp(board.getWriteDate().getTime()));
 			pstmt.setInt(7, board.getReadCount());
 			pstmt.setString(8,board.getIp());
-			pstmt.setInt(9, board.getGroupNumber());
+			pstmt.setInt(9,board.getGroupNumber());
 			pstmt.setInt(10,board.getSequenceNumber());
 			pstmt.setInt(11,board.getSequenceLevel());
-			pstmt.setString(12, "없음");
-			pstmt.setString(13,"없음");
-			pstmt.setInt(14, 0);
+			pstmt.setString(12, board.getFileName());
+			pstmt.setString(13,board.getPath());
+			pstmt.setLong(14, board.getSize());
 			
 			check=pstmt.executeUpdate();
 		}catch(SQLException e){
@@ -55,13 +59,15 @@ public class BoardDao {
 	}
 	
 	public void writeNumber(Connection conn , BoardDto board){
-		int boardNumber=board.getBoardNumber();
-		int groupNumber=board.getGroupNumber();
-		int sequenceNumber=board.getSequenceNumber();
-		int sequenceLevel=board.getSequenceLevel();
+		HashMap<String,String> dataMap=board.getDataMap();
 		
+		int boardNumber=Integer.parseInt(dataMap.get("boardNumber"));
+		int groupNumber=Integer.parseInt(dataMap.get("groupNumber"));
+		int sequenceNumber=Integer.parseInt(dataMap.get("sequenceNumber"));
+		int sequenceLevel=Integer.parseInt(dataMap.get("sequenceLevel"));
 		//System.out.println("writeNumber method BoardNumber : " + boardNumber);
 		//System.out.println("writeNumber method groupNumber : " + groupNumber);
+	
 		conn=ConnectionProvider.getConnection();
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
@@ -89,6 +95,7 @@ public class BoardDao {
 			groupNumber=max;
 			sequenceNumber=0;
 			sequenceLevel=0;
+			
 		// 답글 : 부모글 번호 가져옴 	
 		}else{	
 			try{
@@ -219,6 +226,10 @@ public class BoardDao {
 				board.setSequenceNumber(rs.getInt("sequence_number"));
 				board.setSequenceLevel(rs.getInt("sequence_level"));
 				board.setIp(rs.getString("ip"));
+				
+				board.setFileName(rs.getString("file_name"));
+				board.setPath(rs.getString("path"));
+				board.setSize(rs.getLong("file_size"));
 			}
 			
 			conn.commit();
@@ -317,5 +328,35 @@ public class BoardDao {
 		}
 		
 		return check;
+	}
+	
+	public BoardDto fileRead(int boardNumber){
+		BoardDto board=null;
+		Connection conn=ConnectionProvider.getConnection();
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		
+		try{
+			String sql="select * from board where board_Number=?";
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, boardNumber);
+			rs=pstmt.executeQuery();
+			
+			if(rs.next()){
+				board=new BoardDto();
+				
+				board.setFileName(rs.getString("file_name"));
+				board.setPath(rs.getString("path"));
+				board.setSize(rs.getLong("file_size"));
+			}
+		}catch(SQLException e){
+			e.printStackTrace();
+			System.out.println("fileRead Error");
+		}finally{
+			JdbcUtil.close(rs);
+			JdbcUtil.close(pstmt);
+			JdbcUtil.close(conn);
+		}
+		return board;
 	}
 }
