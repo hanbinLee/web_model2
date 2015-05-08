@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.kosta.addrModel.AddrDto">
+	<insert id="insertUser" parameterType="addrModel.AddrDto">
+		insert into addr values(addr_num_weq.nextval , #{name} , #{phone} , #{email} )
+	</insert>
+	
+	<select id="findUser" parameterType="String" resultType="addrModel.AddrDto">
+		select * from addr where name = #{name}
+	</select>
+	
+	<delete id="deleteUser" parameterType="String">
+		delete from addr where name=#{name}
+	</delete>
+	
+	<update id="updateUser" parameterType="addrModel.AddrDto">
+		update addr set phone=#{phone} , email=#{email} where name=#{name}
+	</update>
+</mapper>

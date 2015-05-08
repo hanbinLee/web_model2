@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Properties;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -95,7 +96,13 @@ public class FrontController extends HttpServlet{
 			e.printStackTrace();
 		}
 		//System.out.println("viewPage : " + viewPage);
-		if(viewPage !=null) request.getRequestDispatcher(viewPage).forward(request, response);
+	//	if(viewPage !=null) request.getRequestDispatcher(viewPage).forward(request, response);
+		//template 추가시
+		if(viewPage !=null) {
+			request.setAttribute("viewPage", viewPage);
+			RequestDispatcher rd=request.getRequestDispatcher("/template/index.jsp");
+			rd.forward(request, response);
+		}
 	}	
 	
 }
