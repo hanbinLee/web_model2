@@ -52,6 +52,9 @@ public class WriteOkAction implements CommandAction{
 					String fileName=item.getName();
 					String dirFileName="";
 					if(fileName==null || fileName.equals("")){
+						board.setFileName("nofile");
+						board.setPath("nofile");
+						board.setSize(0);
 						continue;
 					}else{
 						long currentTime=System.currentTimeMillis();

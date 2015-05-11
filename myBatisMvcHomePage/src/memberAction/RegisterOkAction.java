@@ -30,8 +30,8 @@ public class RegisterOkAction implements CommandAction{
 		member.setJob(request.getParameter("job"));
 		member.setMailing(request.getParameter("mailing"));
 		member.setInterest(request.getParameter("interest"));
-		member.setMemberLevel("BA");
-		member.setRegisterDate(new Date());
+		member.setMember_level("BA");
+		member.setRegister_date(new Date());
 		
 		int check=MemberDao.getInstance().insert(member);
 		

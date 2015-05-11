@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.kosta.mvcHomePage">
+	<resultMap type="fileBoardModel.BoardDto" id="boardDto">
+  		<result column="board_number" property="boardNumber"/>
+	  	<result column="write_date" property="writeDate"/>
+	  	<result column="read_count" property="readCount"/>
+	  	<result column="group_number" property="groupNumber"/>
+	  	<result column="sequence_number" property="sequenceNumber"/>
+	  	<result column="sequence_level" property="sequenceLevel"/>
+	  	<result column="file_name" property="fileName"/>
+	  	<result column="file_size" property="size"/>
+  	</resultMap>
+
+	<select id="fileBoardCount" resultType="int">
+		select count(*) cnt from board
+	</select>
+	
+	<select id="fileBoardWriteNumber" resultType="int">
+		select max(group_number) as mgn from board
+	</select>
+	
+	<update id="writeNumberUpdate" parameterType="java.util.HashMap">
+		update board set sequence_number=sequence_number + 1 
+			where group_number=#{groupNumber} and sequence_number > #{sequenceNumber} 
+	</update>
+	
+	<insert id="fileBoardInsert" parameterType="fileBoardModel.BoardDto">
+		insert into board values(
+			board_board_number_seq.nextval , #{writer} , #{subject} , #{email} , #{content} ,
+			#{password} , #{writeDate} , #{readCount} ,  #{ip} , #{groupNumber} , 
+			#{sequenceNumber} , #{sequenceLevel} , #{fileName} , #{path} , #{size})
+	</insert>
+	
+	<select id="fileBoardGetBoardList" parameterType="java.util.HashMap" resultMap="boardDto">
+	<![CDATA[		
+		select * from (
+			select rownum as rnum,temp.* from (
+				select * from board order by group_number desc,sequence_number asc ) temp ) 
+					where rnum >= #{startRow} and rnum <= #{endRow}
+	 ]]>	
+	</select>
+	
+	<update id="fileBoardReadCount" parameterType="int">
+		update board set read_count=read_count+1 where board_Number=#{boardNumber}
+	</update>
+	
+	<select id="fileBoardRead" parameterType="int" resultMap="boardDto">
+		select * from board where board_Number=#{boardNumber}
+	</select>
+	
+	<delete id="fileBoardDelete" parameterType="java.util.HashMap">
+		delete from board where board_Number=#{boardNumber} and password=#{password}
+	</delete>
+	
+	<update id="fileBoardUpdate" parameterType="fileBoardModel.BoardDto">
+		update board set subject=#{subject} , content=#{content} 
+			where board_number=#{boardNumber} and password=#{password}
+	</update>
+
+</mapper>

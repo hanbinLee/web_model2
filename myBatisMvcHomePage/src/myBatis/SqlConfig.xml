@@ -15,6 +15,7 @@
   </environments>
   <mappers>
     <mapper resource="guestModel/GuestMapper.xml"/>
-    
+    <mapper resource="memberModel/MemberMapper.xml"/>
+    <mapper resource="fileBoardModel/BoardMapper.xml"/>
   </mappers>
 </configuration>

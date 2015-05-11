@@ -15,9 +15,22 @@ public class MemberDto {
 	private String job;
 	private String mailing;
 	private String interest;
-	private String memberLevel;
-	private Date registerDate;
+	private String member_level;
+	private Date register_date;
 	
+	
+	public Date getRegister_date() {
+		return register_date;
+	}
+	public void setRegister_date(Date register_date) {
+		this.register_date = register_date;
+	}
+	public String getMember_level() {
+		return member_level;
+	}
+	public void setMember_level(String member_level) {
+		this.member_level = member_level;
+	}
 	public int getNum() {
 		return num;
 	}
@@ -90,16 +103,5 @@ public class MemberDto {
 	public void setInterest(String interest) {
 		this.interest = interest;
 	}
-	public String getMemberLevel() {
-		return memberLevel;
-	}
-	public void setMemberLevel(String memberLevel) {
-		this.memberLevel = memberLevel;
-	}
-	public Date getRegisterDate() {
-		return registerDate;
-	}
-	public void setRegisterDate(Date registerDate) {
-		this.registerDate = registerDate;
-	}	
+	
 }

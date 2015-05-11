@@ -11,10 +11,10 @@ public class IdCheckAction implements CommandAction{
 			HttpServletResponse response) throws Throwable {
 		
 		String id=request.getParameter("id");
-		//System.out.println("id" + id);
+		System.out.println("id" + id);
 		
 		int check=MemberDao.getInstance().checkId(id);
-		//System.out.println("check : " + check);
+		System.out.println("check : " + check);
 		
 		request.setAttribute("check", check);
 		request.setAttribute("id", id);

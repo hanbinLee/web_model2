@@ -1,13 +1,13 @@
 package fileBoardAction;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import controller.CommandAction;
 import fileBoardModel.BoardDao;
 import fileBoardModel.BoardDto;
-import controller.CommandAction;
 
 public class ListAction implements CommandAction{
 	public String proRequest(HttpServletRequest request,
@@ -26,7 +26,7 @@ public class ListAction implements CommandAction{
 		int count=BoardDao.getInstance().getCount();
 		//System.out.println("getCount count : " + count);
 		
-		ArrayList<BoardDto> boardList=null;
+		List<BoardDto> boardList=null;
 		
 		if(count>0){
 			boardList=BoardDao.getInstance().getBoardList(startRow,endRow);

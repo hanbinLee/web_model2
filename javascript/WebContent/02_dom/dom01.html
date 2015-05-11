@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function test(){
+		var div = document.getElementsByTagName("div"); // 반환형은 배열
+		//alert(div.length);
+		div[0].innerHTML="HAHAHA";
+		div[1].innerHTML="HOHOHO";
+		div[2].innerHTML="HEHEHE";
+	}
+</script>
+</head>
+<body>
+	<div>
+		
+	</div>
+	
+	<div>
+	
+	</div>
+	
+	<input type="button" value="클릭" onclick="test()"/>
+	
+	<div>
+	
+	</div>
+</body>
+</html>

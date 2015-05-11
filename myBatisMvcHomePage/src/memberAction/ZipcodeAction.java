@@ -1,6 +1,6 @@
 package memberAction;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,7 +18,7 @@ public class ZipcodeAction implements CommandAction{
 		
 		if(city!=null){
 			//System.out.println("city : " + city);
-			ArrayList<ZipcodeDto> list=MemberDao.getInstance().searchZipcode(city);
+			List<ZipcodeDto> list=MemberDao.getInstance().searchZipcode(city);
 			request.setAttribute("list", list);
 			
 			return "/member/zipcodeResult.jsp";

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.kosta.mvcHomePage">
+	<insert id="memberInsert" parameterType="memberModel.MemberDto">
+		insert into member values 
+		(
+			member_num_seq.nextval , #{id} , #{password} , #{name} , #{jumin1} , #{jumin2} ,
+			#{email} , #{zipcode} , #{address} , #{job} , #{mailing} , #{interest} ,
+			 #{member_level} , #{register_date}
+		 )
+	</insert>
+	
+	<select id="memberIdCheck" parameterType="String" resultType="String">
+		select id from member where id = #{id}
+	</select>
+	
+	<select id="memberSearchZipcode" parameterType="String" resultType="memberModel.ZipcodeDto">
+		select * from zipcode where dong = #{city}
+	</select>
+	
+	<select id="memberLogin" parameterType="java.util.HashMap" resultType="String">
+		select member_level from member where id = #{id} and password = #{password}
+	</select>
+	
+	<select id="memberFindId" parameterType="String" resultType="memberModel.MemberDto">
+		select * from member where id = #{id}
+	</select>
+	
+	<update id="memberUpdate" parameterType="memberModel.MemberDto">
+		update member set password = #{password} , email = #{email} , zipcode = #{zipcode} , 
+								 address= #{address} , job = #{job} , 
+								 mailing = #{mailing}  , interest = #{interest} 
+								 where id = #{id}
+	</update>
+	
+	<delete id="memberDelete" parameterType="java.util.HashMap">
+		delete from member where id = #{id} and password = #{password} 
+	</delete>
+</mapper>

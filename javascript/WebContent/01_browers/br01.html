@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function abc(){
+		window.alert("hahaha");
+	}
+	
+	function info(){
+		var array = new Array();
+		array.push("브라우저 코드명 : "  + navigator.appCodeName);
+		array.push("브라우저 이름 : " + navigator.appName);
+		array.push("브라우저 플랫폼 : " + navigator.platform);
+		array.push("브라우저 버전 : " + navigator.appVersion);
+		array.push("자바 사용가능 : " + navigator.javaEnabled());
+		array.push("사용자 에이전트명 : " + navigator.userAgent);
+		alert(array.join("\n"));
+	}
+	
+</script>
+</head>
+<body>
+	<button onclick = "abc()">버튼 눌러주세요.</button>
+	<br/>
+	
+	<h3>전후 이동</h3>
+	<a href="javascript:history.back()">되돌아가기</a>
+	<a href="javascript:history.forward()">앞으로가기</a>
+	<br/>
+	
+	<h3>Navigator 객체</h3>
+	<button onclick = "info()">브라우저 정보</button>
+</body>
+</html>

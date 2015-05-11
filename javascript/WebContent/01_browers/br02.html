@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function sub(){
+		var arr = new Array();
+		arr.push("모니터의 너비 : " + screen.width);
+		arr.push("모니터의 높이 : " + screen.height);
+		arr.push("이용가능너비(테스크바를 제외 사이즈) : " + screen.availWidth);
+		arr.push("이용가능높이(테스크바를 제외 사이즈) : " + screen.availHeight);
+		arr.push("모니터 색상수 : " + screen.colorDepth);
+		alert(arr.join("\n"));
+	}
+	
+	function myWin(){
+		var width = 400;
+		var height = 400;
+		
+		var left = (screen.width - width)/2;
+		var top = (screen.height - height)/2;
+		var myWin = 'width='+width + ',height='+height + 
+						  ',left='+left + ',top='+top + 
+						  ',scrollbars=yes';
+		
+		window.open("http://www.naver.com" , "" ,  myWin );
+	}
+</script>
+</head>
+<body>
+	<h3>Screen 객체</h3>
+	
+	<button onclick = "sub()">버튼</button>
+	<br/>
+	
+	<a href="#" onclick = "myWin()">네이버 홈페이지</a>
+</body>
+</html>

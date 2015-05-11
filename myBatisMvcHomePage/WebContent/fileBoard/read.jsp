@@ -59,12 +59,22 @@
 			<td valign="top"  height="200" colspan="3">${board.content }</td>
 		</tr>
 		
-		<c:if test="${board.fileName != null }">
-			<tr>
-				<td align="center"  height="20" width="125">파일명</td>
-				<td colspan="3"><a href="${root }/fileBoard/downLoad.do?boardNumber=${board.boardNumber}">${board.fileName }</a></td>
-			</tr>
-		</c:if>
+		<c:choose>
+			<c:when test="${board.size == 0 }">
+				<tr>
+					<td align="center"  height="20" width="125">파일명</td>
+					<td colspan="3">첨부된 파일이 없습니다.</td>
+				</tr>
+			</c:when>
+			
+			<c:otherwise>
+				<tr>
+					<td align="center"  height="20" width="125">파일명</td>
+					<td colspan="3"><a href="${root }/fileBoard/downLoad.do?boardNumber=${board.boardNumber}">${board.fileName }</a></td>
+				</tr>
+			</c:otherwise>
+		</c:choose>
+		
 		
 		<tr>
 			<td height="30" colspan="4" align="center">

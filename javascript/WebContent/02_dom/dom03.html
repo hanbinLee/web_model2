@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	#test1{
+		color : red;
+	}
+</style>
+<script>
+	function test(){
+		var test1 = document.getElementById("test1");
+		test1.innerHTML="태그1";
+		test1.align="center";
+		
+		var info1 = document.getElementById("info1");
+		info1.innerHTML="태그2";
+		
+		var info2 = document.getElementById("info2");
+		info2.innerHTML="태그3";
+		
+		var info3 = document.getElementById("info3");
+		info3.innerHTML="태그4";
+		
+		var test3 = document.getElementById("test3");
+		var span = test3.getElementsByTagName("span");
+		span[0].innerHTML = "태그5";
+		span[1].innerHTML = "태그6";
+	}
+</script>
+</head>
+<body onload="test()">
+	<div id="test1"></div>
+	
+	<div id="test2">
+		<span id="info1"></span>
+		<span id="info2"></span>
+		<span>
+			<span id="info3"></span>
+			<span id="info4"></span>
+		</span>
+	</div>
+	
+	<div id="test3">
+		<span></span>
+		<span></span>
+	</div>
+</body>
+</html>

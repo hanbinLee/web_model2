@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function test(){
+		var font = document.getElementsByTagName("font");
+		var span = font[0].getElementsByTagName("span");
+		span[0].innerHTML = "태그1";
+		span[1].innerHTML = "태그2";
+	}
+</script>
+</head>
+<body>
+	<font>
+		<span></span>
+		<span></span>
+		<input type="button" value="클릭" onclick="test()"/>
+	</font>
+	
+	<span id="aa"></span>
+	
+	<div>
+		<span></span>
+		<span></span>
+	</div>
+	
+	<div>
+		<div>
+			<span></span>
+		</div>
+	</div>
+</body>
+</html>
