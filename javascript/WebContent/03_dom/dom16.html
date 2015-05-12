@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function sub(){
+		var arr = new Array();
+		var secondSon = document.getElementById("secondSon");
+			
+		var firstSon = preSibling(secondSon);
+		var thirdSon = nextSibling(secondSon);
+	
+		var disp = document.getElementById("disp");
+		disp.innerHTML = firstSon.childNodes[0].nodeValue + "," + thirdSon.firstChild.nodeValue;
+	}
+	
+	function preSibling(node){
+		do{
+			node = node.previousSibling;
+		}while(node.nodeType != 1);
+		
+		return node;
+	}
+	
+	function nextSibling(node){
+		do{
+			node = node.nextSibling;
+		}while(node.nodeType != 1);
+		
+		return node;
+	}
+</script>
+</head>
+<body>
+	<div id="grandFather">
+		<div id="father">
+			<span id="firstSon">first</span>
+			<span id="secondSon">second</span>
+			<span id="thirdSon">third</span>
+		</div>
+	</div>
+	<br/><br/>
+	
+	<input type="button" value="click" onclick="sub()" />
+	
+	<h3 id="disp"></h3>
+</body>
+</html>

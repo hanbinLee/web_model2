@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function sub(){
+		var arr = new Array();
+		var melon = document.getElementById("melon");
+		var span = melon.getElementsByTagName("span");
+		
+		arr.push("노드 이름 : " + span[0].nodeName);
+		arr.push("자식 노드  value : " + span[0].childNodes[0].nodeValue);
+		arr.push("자식 노드 value : " + span[0].firstChild.nodeValue);
+		
+		arr.push("노드 이름 : " + span[1].nodeName);
+		arr.push("자식 노드  value : " + span[1].childNodes[0].nodeValue);
+		arr.push("자식 노드 value : " + span[1].firstChild.nodeValue);
+		
+		arr.push("노드 이름 : " + span[2].nodeName);
+		arr.push("자식 노드  value : " + span[2].childNodes[0].nodeValue);
+		arr.push("자식 노드 value : " + span[2].firstChild.nodeValue);
+		
+		alert(arr.join("\n"));
+		
+	}
+</script>
+</head>
+<body>
+	<span id="melon">
+		<span>가</span>
+		<span>나</span>
+		<span>다</span>
+	</span>
+	
+	<input type="button" value="click" onclick="sub()" />
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function sub(){
+		var hangul = document.getElementById("hangul");
+		var span = hangul.getElementsByTagName("span");
+		var str = span[0].childNodes[0].nodeValue;
+		
+		var disp = document.getElementById("disp");
+		disp.innerHTML = str;
+	}
+</script>
+</head>
+
+<body>
+	<div id="hangul">
+		<span>가</span>
+	</div>
+	
+	<input type="button" value="send" onclick="sub()" />
+	<br/><br/>
+	
+	<div id="disp" style="color:red"></div>
+</body>
+</html>

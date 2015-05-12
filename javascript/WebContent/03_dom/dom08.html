@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function abc(){
+		var arr = new Array();
+		var div = document.getElementsByTagName("div");
+		arr.push("노드이름 & 노드 값 : " + div[0].nodeName + "," + div[0].nodeValue );
+		arr.push("노드이름 & 노드 값: " + div[0].childNodes[0].nodeName + "," + div[0].childNodes[0].nodeValue);
+	
+		//alert(arr.join("\n"));
+	}
+	
+	function xyz(){
+		var arr = new Array();
+		var melon = document.getElementById("melon");
+		
+		arr.push("자식 개수 : " + melon.childNodes.length);
+		
+		//alert(arr);
+		
+		for(var i = 0 ; i < melon.childNodes.length ; i ++){
+			arr.push("childNodes : " + melon.childNodes[i].nodeName);
+		}
+		
+		alert(arr.join("\n"));
+	}
+</script>
+</head>
+<body>
+	<div>안녕하세요</div>
+	<input type="button" value="click1" onclick="abc()" /><br/>
+	
+	<!--  자식 수는 웹 브라우저 마다 다르다. -->
+	<span id="melon">
+		<span>가</span>
+		<span>나</span>
+		<span>다</span>
+	</span>
+	<br/>
+	
+	<input type="button" value="click2" onclick="xyz()" /><br/>
+</body>
+</html>

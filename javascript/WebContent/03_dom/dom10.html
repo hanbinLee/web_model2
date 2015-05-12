@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function sub1(){
+		var arr = new Array();
+		var test = document.getElementById("test");
+		var span = test.getElementsByTagName("span");
+		
+		for(var i = 0 ; i < span.length ; i ++){
+			arr.push(span[i].childNodes[0].nodeValue);
+		}
+		
+		alert(arr.join("\n"));
+	}
+	
+	function sub2(){
+		var arr = new Array();
+		var exam = document.getElementById("exam");
+		var font = exam.getElementsByTagName("font");
+		//alert(font.length);
+		
+		for(var i = 0 ; i < font.length ; i ++ ){
+			var span = font[i].getElementsByTagName("span");
+		//	alert(span.length);
+			for(var j = 0 ; j < span.length; j++){
+				//alert("test : " + span[j].childNodes[0].nodeValue);
+				arr.push(span[j].childNodes[0].nodeValue);
+			}
+		}
+		
+		alert(arr.join("\n"));
+	}
+</script>
+</head>
+
+<body>
+	<div id="test">
+		<span>span1태그</span>
+		<span>span2태그</span>
+		<span>span3태그</span>
+		<span>span4태그</span>	
+	</div>
+	
+	<input type="button" value="click" onclick="sub1()"/>
+	<br/><br/>
+	
+	<div id="exam">
+		<font>
+			<span>가</span>
+			<span>나</span>
+			<span>다</span>
+			<span>라</span>
+		</font>
+		
+		<font>
+			<span>A</span>
+			<span>B</span>
+			<span>C</span>
+		</font>
+	</div> 	
+	
+	<input type="button" value="click2" onclick="sub2()"/>
+	<br/><br/>
+</body>
+</html>

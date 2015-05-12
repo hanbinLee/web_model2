@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function change(){
+		//alert("dd");
+		var myFom = document.getElementById("myForm");
+		var radio=myForm.select;
+		//alert(radioForm.length);
+		var msg = document.getElementById("msg");
+		
+		/*
+			for(var i = 0 ; i < radio.length ; i ++){
+				radio[i].value = "선택" + (i+1);
+			}
+		*/
+		for(var i = 0 ; i < radio.length ; i ++){
+			if(radio[i].checked){
+				msg.innerHTML = "<h3>" + radio[i].value + "</h3>";
+			}
+		}
+		
+	}
+</script>
+</head>
+<body>
+	<form id="myForm">
+		<input type="radio" name="select" value="선택1" onclick="change()"/>
+		<label>선택1</label>
+		
+		<input type="radio" name="select" value="선택2" onclick="change()"/>
+		<label>선택2</label>
+		
+		<input type="radio" name="select" value="선택3" onclick="change()"/>
+		<label>선택3</label>
+		
+		<input type="radio" name="select" value="선택4" onclick="change()"/>
+		<label>선택4</label>
+		
+		<input type="radio" name="select" value="선택5" onclick="change()"/>
+		<label>선택5</label>
+	</form>
+	
+	<div id="msg"></div>
+</body>
+</html>

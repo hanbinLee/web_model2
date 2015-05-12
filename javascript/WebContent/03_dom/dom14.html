@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function sub(){
+		var firstSon = document.getElementById("firstSon");
+		var firstSonParent = firstSon.parentNode;
+		
+		var secondSon = document.getElementById("secondSon");
+		var secondSonParent = secondSon.parentNode;
+		
+		var thirdSon = document.getElementById("thirdSon");
+		var thirdSonParent = thirdSon.parentNode;
+		
+		//alert(firstSonParent + "," + secondSonParent + "," + thirdSonParent);
+		
+		var str = firstSonParent.nodeName + "<br/>";
+		str += secondSonParent.nodeName + "<br/>";
+		str += thirdSonParent.nodeName + "<br/>";
+		
+		var disp = document.getElementById("disp");
+		disp.innerHTML = str;
+	}
+</script>
+</head>
+<body onload="sub()">
+	<div id="grandFather">
+		<div id="father">
+			<span id="firstSon">first</span>
+			<span id="secondSon">second</span>
+			<span id="thirdSon">third</span>
+		</div>
+	</div>
+	<br/><br/>
+	
+	<h3 id="disp"></h3>
+</body>
+</html>

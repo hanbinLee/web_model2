@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function sub(){
+		var apple = document.getElementById("apple");
+		apple.align = "center";
+		//alert(apple.align);
+		
+		var banana = document.getElementById("banana");
+		banana.size = "7";
+		
+		var input = document.getElementById("input");
+		input.size = "30";
+		input.value = "딸기는 맛있어";
+	}
+</script>
+</head>
+
+<body>
+	<div id="apple">사과</div>
+	
+	<font id="banana">banana</font>
+	
+	<input id="input" type="text" value="strawberry"/>
+	<input type="button" value="클릭" onclick="sub()"/>
+</body>
+</html>

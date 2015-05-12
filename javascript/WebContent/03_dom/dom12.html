@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function sub(){
+		clear();
+		
+		var hangul = document.getElementById("hangul");
+		var span1 = hangul.getElementsByTagName("span");
+		
+		var str1 = "";
+		var i;
+	
+		for(var i = 0 ; i < span1.length; i ++){
+			str1 += span1[i].childNodes[0].nodeValue;
+		}
+		
+	//	alert(str1);
+		
+		var disp = document.getElementById("disp");
+		disp.style.color = "red";
+		disp.style.fontSize = "15px"; //dom에서는 - 대신 대문자로 씀 font-size ---> fontSize 
+		disp.innerHTML = "추출한 문자는" + str1 + "입니다. <br/>"; 
+		
+		var alphabat = document.getElementById("alphabat");
+		var span2 = alphabat.getElementsByTagName("span");
+		var str2 = "";
+		
+		for(var i = 0 ; i < span2.length; i ++){
+			str2 += span2[i].childNodes[0].nodeValue;
+		}
+				
+		var result = document.getElementById("result");
+		result.innerHTML = "추출한 문자는" + str2 + "입니다. <br/>";
+	}
+	
+	function clear(){
+		var arr = new Array();
+		
+		arr.push(document.getElementById("hangul"));
+		arr.push(document.getElementById("alphabat"));
+		arr.push(document.getElementById("btn"));
+		
+		for(var i = 0 ; i < arr.length ; i ++){
+			arr[i].style.display="none";
+		}
+	}
+	
+	//요소(tag) nodeType : 1
+	//속성 nodeType : 2
+	//텍스트 #text : 3
+</script>
+</head>
+
+<body>
+	<font id="hangul">
+		<span>가</span>
+		<span>나</span>
+		<span>다</span>
+	</font>
+	
+	<font id="alphabat">
+		<span>A</span>
+		<span>B</span>
+		<span>C</span>
+	</font>
+	
+	<input type="button" id="btn" value="click" onclick="sub()" /><br/><br/>
+	
+	<h3 id="disp"></h3>
+	<h3 id="result"></h3>
+</body>
+</html>

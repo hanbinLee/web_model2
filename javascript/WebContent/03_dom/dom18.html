@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function sub(){
+		var div = document.createElement("div");
+		var span = document.createElement("span");
+		var br = document.createElement("br");
+		var b = document.createElement("b");
+		var font = document.createElement("font");
+		
+		document.body.appendChild(div);
+		div.appendChild(span);
+		div.appendChild(br);
+		div.appendChild(b);
+		
+		span.innerHTML = "안녕하세요";
+		b.innerHTML = "집에가자";
+		font.innerHTML = "낼 보지 말자";
+		
+		div.replaceChild(font, span);
+		
+		//div.removeChild(br);
+	}
+</script>
+</head>
+
+<body onload="sub()">
+</body>
+</html>

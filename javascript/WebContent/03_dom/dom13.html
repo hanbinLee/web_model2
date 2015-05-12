@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function sub(){
+		var arr = new Array();
+		var melon = document.getElementById("melon");
+		var melonChild = melon.childNodes;
+		
+//		for(var i = 0 ; i < melonChild.length ; i ++){
+//			arr.push(melonChild[i].nodeName);
+//			arr.push(melonChild.item(i).nodeType);
+//		}
+				
+		for(var i = 0 ; i < melonChild.length ; i ++){
+			if(melonChild[i].nodeType == 1){
+				arr.push(melonChild[i].childNodes[0].nodeValue);
+			}
+		}
+		
+		alert(arr.join("\n"));
+	}
+</script>
+</head>
+
+<body>
+	<span id="melon">
+		<span>가</span>
+		<span>나</span>
+		<span>다</span>
+	</span>
+	
+	<input type="button" value="click" onclick="sub()" />
+</body>
+</html>

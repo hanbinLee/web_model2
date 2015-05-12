@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function sub(){
+		var secondSon = document.getElementById("secondSon");
+		var firstSon = secondSon.previousSibling;
+		var firstSon2 = secondSon.previousSibling.previousSibling;
+		var thirdSon = secondSon.nextSibling;
+		var thirdSon2 = secondSon.nextSibling.nextSibling;
+		
+		var temp = secondSon.previousSibling;
+		
+		alert(temp.nodeType);
+		while(true){
+		    if(temp.nodeType == 1) break;	    
+		    temp = temp.previousSibling;		
+		}
+		
+		disp.innerHTML = temp.childNodes[0].nodeValue;
+
+	//	var disp = document.getElementById("disp");
+	//	disp.innerHTML = firstSon2.childNodes[0].nodeValue + "," + secondSon.childNodes[0].nodeValue + "," + thirdSon2.firstChild.nodeValue;
+	}
+</script>
+</head>
+<body onload="sub()">
+	<div id="grandFather">
+		<div id="father">
+			<span id="firstSon">first</span>
+			<span id="secondSon">second</span>
+			<span id="thirdSon">third</span>
+		</div>
+	</div>
+	<br/><br/>
+	
+	<h3 id="disp"></h3>
+</body>
+</html>
