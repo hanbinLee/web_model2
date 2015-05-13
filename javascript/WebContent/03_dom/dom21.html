@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function sub(){
+		var form = document.createElement("form");
+		var label = document.createElement("label");
+		var input = document.createElement("input");
+		var submit = document.createElement("input");
+		document.body.appendChild(form);
+		
+		form.setAttribute("id" , "createForm");
+		form.setAttribute("action" , "dom20.html" );
+		form.setAttribute("method" , "post");
+		form.setAttribute("onsubmit" , "return abc()");
+		
+		label.innerHTML ="이름을 입력하세요";
+		
+		input.setAttribute("id" , "name");
+		input.setAttribute("type" , "text");
+		input.setAttribute("size" , "12");
+		
+		submit.setAttribute("type" , "submit");
+		submit.setAttribute("value" , "send");
+		
+		form.appendChild(label);
+		form.appendChild(input);
+		form.appendChild(submit);
+	}
+	
+	function abc(){
+		var createForm = document.getElementById("createForm");
+		
+		if(createForm.name.value==""){
+			alert("이름을 입력하세요");
+			createForm.name.focus();
+			return false;
+		}
+		
+		return true;
+	}
+</script>
+</head>
+<body onload="sub()">
+	
+</body>
+</html>

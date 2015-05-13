@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="04_Sungjuk.js"></script>
+<script>
+	function func1(){
+		var num=document.getElementById("num").value;
+		var name=document.getElementById("name").value;
+		var kor=document.getElementById("kor").value;
+		var eng=document.getElementById("eng").value;
+		var mat=document.getElementById("mat").value;
+		
+		var s = new Sungjuk(num,name,kor,eng,mat);
+		s.disp();
+	}
+	
+	function func2(){
+		alert("test");
+	}
+</script>
+</head>
+<body>
+	<label>번호</label>
+	<input type="text" name="num" id="num" /><br/><br/>
+	
+	<label>이름</label>
+	<input type="text" name="name" id="name" /><br/><br/>
+	
+	<label>국어</label>
+	<input type="text" name="kor" id="kor"/><br/><br/>
+	
+	<label>영어</label>
+	<input type="text" name="eng" id="eng"/><br/><br/>
+	
+	<label>수학</label>
+	<input type="text" name="mat" id="mat"/><br/><br/>
+	
+	<input type="button" value="전송" onclick="func1()" />
+	<input type="reset" value="취소" onclick="func2()" /><br/><br/>
+	
+	<span id="view"></span>
+</body>
+</html>

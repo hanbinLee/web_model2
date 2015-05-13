@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function fun1(str){
+		var myColor = document.getElementById("myColor");
+		myColor.style.backgroundColor=str;
+	}
+	
+	function fun2(eltm,str){
+		eltm.style.backgroundColor = str;
+	}
+</script>
+</head>
+<body>
+	<div id="myColor" style="width:350px" onmouseover="fun1('blue')" onmouseout="fun1('white')">
+		마우스를 올려 놓앗을대 색이 변합니다.
+	</div>
+	<br/>
+	
+	<div id="myColor" style="width:350px" onmouseover="fun2(this , 'blue')" onmouseout="fun2(this , 'white')">
+		마우스를 올려 놓앗을대 색이 변합니다.
+	</div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	#test{
+		width:300px;
+		height:200px;
+		font-size:30px;
+		background-color: #DDDDDD;
+	}
+</style>
+<script>
+	function inputShow(str){
+		var test = document.getElementById("test");
+		test.style.width="800px;"
+		test.style.backgroundColor="yellow";
+		test.style.border="solid 3px red";
+		test.innerHTML="aaa";
+		test.style.display=str;
+	}
+</script>
+</head>
+<body>
+	<div id="test">연습</div>
+	
+	<div>
+		<input type="button" value="click" onclick="inputShow('none')"/>
+		<input type="button" value="click2" onclick="inputShow('block')"/>
+	</div>
+</body>
+</html>

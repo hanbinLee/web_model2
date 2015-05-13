@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+function sub(){
+	var examForm = document.createElement("form");
+	var labelName = document.createElement("label");
+	var labelSite = document.createElement("label");
+	var labelFruit = document.createElement("label");
+	var labelInterest = document.createElement("label");
+	var inputName = document.createElement("input");
+	var select = document.createElement("select");
+	var siteList = ['   ' , 'naver' , 'daum' , 'nate'];
+	var siteName = new Array(siteList.length);
+	var fruitList = ['바나나' , '사과' , '딸기' , '파인애플'];
+	var radioName = new Array(fruitList.length);
+	var radioLabel = new Array(fruitList.length);
+	var checkBoxList = ['경제' , 'IT' , '음악' , '미술'];
+	var checkBoxName = new Array(checkBoxList.length);
+	var checkBoxLabel = new Array(checkBoxList.length);
+	var hiddenInput = document.createElement("input");
+	var submit = document.createElement("input");
+	var reset = document.createElement("input");
+	var br1 = document.createElement("br");
+	var br2 = document.createElement("br");
+	var br3 = document.createElement("br");
+	var br4 = document.createElement("br");
+	
+	document.body.appendChild(examForm);
+	
+	//form
+	examForm.setAttribute("id" , "examForm");
+	examForm.setAttribute("action" , "dom21.html");
+	examForm.setAttribute("method" , "post");
+	examForm.setAttribute("onsubmit" , "return check()");
+	
+	//label
+	labelName.innerHTML = "이름을 입력하세요. ";
+	labelSite.innerHTML = "이동할 사이트 선택하세요";
+	labelFruit.innerHTML = "좋아하는 과일을 선택하세요.";
+	labelInterest.innerHTML = "관심사를 체크하세요";
+	
+	//inputName
+	inputName.setAttribute("type" , "text");
+	inputName.setAttribute("name" , "name");
+	
+	//select
+	select.setAttribute("name" , "site");
+	for(var i = 0 ; i<siteList.length ; i ++){
+		siteName[i] = document.createElement("option");
+		siteName[i].setAttribute("value" , siteList[i]);
+		siteName[i].innerHTML = siteList[i];
+		select.appendChild(siteName[i]);
+	}
+	
+	//submit , reset
+	submit.setAttribute("type" , "submit");
+	submit.setAttribute("value" , "전송");
+	reset.setAttribute("type" , "reset");
+	reset.setAttribute("value" , "취소");
+
+	//자식 결합
+	examForm.appendChild(labelName);
+	examForm.appendChild(inputName);
+	examForm.appendChild(br1);
+	examForm.appendChild(labelSite);
+	examForm.appendChild(select);
+	examForm.appendChild(br2);
+	examForm.appendChild(labelFruit);
+	
+	for(var i = 0 ; i < fruitList.length ; i ++){
+		radioName[i] = document.createElement("input");
+		radioName[i].setAttribute("type" , "radio");
+		radioName[i].setAttribute("name" ,"fruit");
+		radioName[i].setAttribute("value" , fruitList[i]);
+		
+		radioLabel[i] = document.createElement("label");
+		radioLabel[i].innerHTML = fruitList[i];
+	
+		examForm.appendChild(radioName[i]);
+		examForm.appendChild(radioLabel[i]);
+	}
+	examForm.appendChild(br3);
+	examForm.appendChild(labelInterest);
+	
+	for(var i = 0 ; i < checkBoxList.length ; i++){
+		checkBoxName[i] = document.createElement("input");
+		checkBoxName[i].setAttribute("type" , "checkbox");
+		checkBoxName[i].setAttribute("name" , "interestValue");
+		checkBoxName[i].setAttribute("value" , checkBoxList[i]);
+		
+		checkBoxLabel[i] = document.createElement("label");
+		checkBoxLabel[i].innerHTML = checkBoxList[i];
+		
+		examForm.appendChild(checkBoxName[i]);
+		examForm.appendChild(checkBoxLabel[i]);
+	}
+	hiddenInput.setAttribute("type" , "hidden");
+	hiddenInput.setAttribute("name" , "interest");
+	
+	examForm.appendChild(br4);	
+	examForm.appendChild(submit);
+	examForm.appendChild(reset);
+}
+
+function check(){
+	var form = document.getElementById("examForm");
+	var str="";
+	
+	for(var i = 0 ; i <form.interestValue.length; i++){
+		if(form.interestValue[i].checked){
+			str += form.interestValue[i].value + ",";
+		}
+	}
+	
+	alert(str);
+	
+	return false;
+}
+</script>
+</head>
+<body onload="sub()">
+</body>
+</html>

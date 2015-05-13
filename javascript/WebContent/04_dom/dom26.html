@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	.test_style{
+		font-size:15px;
+		color:red;
+		background-color: yellow;
+		width:300px;
+	}
+	
+	.highlight{
+		background-color: blue;
+	}
+	
+	.normal{
+		background-color: white;
+	}
+</style>
+
+<script>
+	function fun1(){
+		var testing = document.getElementById("testing");
+		testing.className="test_style";
+	}
+	
+	function changeFun(eltm , str){
+		eltm.className=str;
+	}
+</script>
+</head>
+<body onload="fun1()">
+	<h3 id="testing">
+		DOM으로 스타일 시트를 사용하는 방법 두가지 이다.
+		HTML 태그에서 사용하는 방법 style 속성 , class , id
+		
+		첫번째 요소.style.스타일프로퍼티명=설정값
+		class(외부 스타일 시트)
+	</h3>
+	
+	<div id="testing2" onmouseover="changeFun(this , 'highlight')" onmouseout="changeFun(this , 'normal')">
+		마우스 색변환
+	</div>
+</body>
+</html>

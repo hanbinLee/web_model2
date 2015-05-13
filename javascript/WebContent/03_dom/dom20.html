@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function sub(){
+		var div = document.createElement("div");
+		document.body.appendChild(div);
+		
+		for(var i = 0 ; i < 3 ; i ++){
+			var input = document.createElement("input");
+			input.setAttribute("type" , "button");
+			input.setAttribute("value" , "click" + (i+1));
+			input.setAttribute("onclick" , "abc()");
+			
+			div.appendChild(input);
+		}
+		
+		var span = document.createElement("span");
+		span.setAttribute("style" , "color:red");
+		span.innerHTML = "hi";
+		
+		div.appendChild(span);
+	}
+	
+	function abc(){
+		alert("abc Function");
+	}
+</script>
+</head>
+
+<body onload="sub()">
+
+</body>
+</html>

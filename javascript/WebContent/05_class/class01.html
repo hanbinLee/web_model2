@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="01_class.js"></script>
+<script>
+	function fruit(){
+		var f = new Fruit();
+		f.taste();
+	}
+	
+	function apple(){
+		var a = new Apple();
+		a.taste();
+		a.disp();
+	}
+	
+	function orange(){
+		var o = new Orange();
+		o.taste();
+		o.disp();
+	}
+</script>
+</head>
+<body>
+	<label>과일</label>
+	<input type="button" value="과일" onclick="fruit()" />
+	<br/>
+	
+	<label>사과</label>
+	<input type="button" value="사과" onclick="apple()" />
+	<br/>
+	
+	<label>오렌지</label>
+	<input type="button" value="오렌지" onclick="orange()" />
+	<br/>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="03_Yonsan.js"></script>
+<script>
+	function result(){
+		su = document.getElementById("su").value;
+		buho = document.getElementById("buho").value;
+		su2 = document.getElementById("su2").value;
+		
+		y = new Yonsan(su , buho , su2);
+		y.check();
+		y.disp();
+	}
+</script>
+</head>
+<body>
+	<label>수</label>
+	<input id="su" type="text" name="su" />
+	<br/><br/>
+	
+	<label>부호</label>
+	<input id="buho" type="text" name="buho" />
+	<br/><br/>
+	
+	<label>수</label>
+	<input id="su2" type="text" name="su2" />
+	<br/><br/>
+	
+	<input type="button" value="전송" onclick="result()" />
+	<input type="reset" value="취소" />
+	
+	<span>결과</span>
+	<span id="value"></span>
+</body>
+</html>
