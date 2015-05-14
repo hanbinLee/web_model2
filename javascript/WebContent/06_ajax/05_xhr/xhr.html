@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="xhr.js"></script>
+<script>
+	function toServer(){
+		var form = document.getElementById("createForm");
+		var text = form.msg.value;
+		
+		var params = "msg="+text;
+		sendRequest("POST" , "xhr.jsp" , fromServer , params );
+	}
+	
+	function fromServer(){
+		if(xhr.readyState == 4 && xhr.status ==200){
+			//alert(xhr.responseText);
+			var div = document.getElementById("resultDisp");
+			div.innerHTML = xhr.responseText;
+		}
+	}
+</script>
+</head>
+<body>
+	<form id="createForm">
+		<input type="text" name="msg" />
+		<input type="button" value="입력" onclick="toServer()"/>
+	</form>
+	
+	<div id="resultDisp"></div>
+</body>
+</html>

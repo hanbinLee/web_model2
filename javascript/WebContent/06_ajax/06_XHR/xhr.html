@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="xhr.js"></script>
+<script>
+	function lectureToServer(){
+		sendRequest("GET" , "xhr.jsp" , lectureFromServer , null);
+	}
+	
+	function lectureFromServer(){
+		if(xhr.readyState == 4 && xhr.status ==200){
+			var xmlDoc = xhr.responseXML;
+			var lectureList = xmlDoc.getElementsByTagName("lecture");
+			var div = document.getElementById("resultDisp");
+			
+			// for 
+			for(var i = 0 ; i<lectureList.length ; i++){
+				var subDiv = document.createElement("div");
+				var lecture = lectureList[i].childNodes;
+				
+				for(var j=0; j<lecture.length ; j++){
+					if(lecture[j].nodeType == 1){
+						var span = document.createElement("span");
+						span.innerHTML = lecture[j].firstChild.nodeValue + "&nbsp";
+						subDiv.appendChild(span);
+					}
+				}
+				
+				div.appendChild(subDiv);
+			} 
+			//end for
+			
+			// for in
+			for(var i in lectureList){
+				var subDiv = document.createElement("div");
+				var lecture = lectureList[i].childNodes;
+
+				for(var j in lecture){
+					if(lecture[j].nodeType == 1){
+						var span = document.createElement("span");
+						span.innerHTML = lecture[j].firstChild.nodeValue +" ";
+						subDiv.appendChild(span);
+					}
+				}
+				div.appendChild(subDiv);
+			} //end for in
+			
+		} //end if
+		
+	} //end lectureFromServer
+</script>
+</head>
+<body onload="lectureToServer()">
+	<div id="resultDisp"></div>
+</body>
+</html>

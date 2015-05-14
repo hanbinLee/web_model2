@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="xhr.js"></script>
+<script>
+	function toServer(){
+		//요청방식 , 요청주소 , 요청처리함수(콜백함수) , 파라메터값
+		sendRequest("GET","xhr.txt", fromServer ,null);
+	}
+	
+	function fromServer(){
+		if(xhr.readyState == 4 && xhr.status == 200){
+			var div = document.getElementById("resultDisp");
+			div.innerHTML = xhr.responseText;
+		}
+	}
+</script>
+</head>
+<body onload="toServer()">
+	<span>XHR</span>
+	
+	<div id="resultDisp"></div>
+</body>
+</html>

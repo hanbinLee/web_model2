@@ -6,7 +6,13 @@
 <script>
 	function sub(){
 		var secondSon = document.getElementById("secondSon");
+		var thirdSon = sub3(secondSon);
 		var firstSon = sub2(secondSon);
+		var father = secondSon.parentNode;
+		
+		
+		var addDiv = document.createElement("div");
+		addDiv.innerHTML = "추가된 자식";
 		
 		var div1 = document.createElement("div");
 		div1.innerHTML = "딸의 자식";
@@ -16,6 +22,9 @@
 
 		firstSon.appendChild(div2);
 		secondSon.appendChild(div1);
+		
+		father.replaceChild(addDiv, thirdSon);
+		father.appendChild(thirdSon);	
 	}
 	
 	function sub2(node){
@@ -25,6 +34,15 @@
 		
 		return node;
 	}
+	
+	function sub3(node){
+		do{
+			node = node.nextSibling;
+		}while(node.nodeType != 1);
+		
+		return node;
+	}
+	
 </script>
 </head>
 <body onload="sub()">
