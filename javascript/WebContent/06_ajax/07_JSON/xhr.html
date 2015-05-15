@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../../xhr/xhr.js"></script>
+<script>
+	function toServer(){
+		sendRequest("GET" , "json.txt" , fromServer , null);
+	}
+	
+	function fromServer(){
+		if(xhr.readyState == 4 && xhr.status == 200){
+			resultDisplay(xhr.responseText);
+		}
+	}
+	
+	function resultDisplay(responseText){
+		var obj = JSON.parse(responseText);
+		var div = document.createElement("div");
+		var ul = document.createElement("ul");
+		var list = new Array(obj.member.length);
+	
+	
+		for(var i = 0 ; i < list.length ; i ++){
+			list[i] = document.createElement("li");
+		}
+		
+		for(var i in obj.member){
+			
+			list[0].innerText=obj.member[i].stdNumber;
+			list[1].innerText=obj.member[i].stdName;
+			list[2].innerText=obj.member[i].score;
+			
+			for(var j in list){
+				ul.appendChild(list[j]);
+			}
+		}
+		
+		div.appendChild(ul);
+		document.getElementById("resultDisp").appendChild(div);
+	}
+</script>
+</head>
+<body onload="toServer()">
+	<div id="resultDisp"></div>
+</body>
+</html>

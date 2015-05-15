@@ -1,0 +1,7 @@
+{"member":
+	[
+		{"stdNumber" : "1001" , "stdName" : "홍길동" , "score" : "95"},
+		{"stdNumber" : "1002" , "stdName" : "이길동" , "score" : "100"},
+		{"stdNumber" : "1003" , "stdName" : "김길동" , "score" : "80"}
+	]
+}

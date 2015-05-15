@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.kosta.mvcHomePage">
+	<resultMap type="sawon.Sawon" id="sawon">
+		<result column="employee_id" property="employeeId"></result>
+		<result column="first_name" property="firstName"></result>
+		<result column="hire_date" property="hireDate"></result>
+		<result column="job_id" property="jobId"></result>
+		<result column="salary" property="salary"></result>
+		<result column="department_id" property="departmentId"></result>
+	</resultMap>
+	<select id="sawonList" parameterType="String" resultMap="sawon">
+		select e.employee_id , e.first_name , e.hire_date , e.job_id , e.salary , e.department_id
+			from departments d , employees e 
+				where d.department_name = #{department} and d.department_id = e.department_id
+	</select>
+ </mapper>
+ 
