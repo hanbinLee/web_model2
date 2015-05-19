@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>jQuery - 실습문제 </title>
+<style type="text/css">
+	body{
+		font-size:30px;
+		cursor:pointer;
+	}
+	.first{
+		color:#ff0000;
+	}
+	.second{
+		color:blue;
+	}
+</style>
+<script src="../jquery/jquery-1.11.3.min.js"></script>
+<script>
+	$(document).ready(function (){
+		$(".first").click(function(){
+			$(this).hide();
+		});
+	});
+	
+	$(document).ready(function(){
+		$(".second").click(function(){
+			$(".first").show();			
+		});
+	});
+	
+	$("#btn1").click(function(){
+		$(".second").fadeOut(2000);
+	});
+	
+	$("#btn2").click(function(){
+		$(".second").fadeIn(2000);
+	});
+	
+	$("#btn3").click(function(){
+		$(".second").fadeToggle(2000);
+	});
+</script>
+</head>
+<body>
+	<div class="first">테스트1</div>
+	<div class="second">테스트2</div>
+	<div class="first">테스트3</div>
+	<div class="second">테스트4</div>
+	<br/><br/>
+	
+	<input type="button" id="btn1" value="사라짐"/>
+	<input type="button" id="btn2" value="나타남"/>
+	<input type="button" id="btn3" value="사라짐나타남"/>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>jQuery - 기본 선택자</title>
+<style type="text/css">
+	span, div{ 
+		font-size:30px; 
+	}
+	.redtext{ 
+		color:#FF0000; 
+	}
+	.italictext{ 
+		font-style:italic; 
+	}
+	.boldtext{
+		font-weight:bold;
+	}
+	.backgroundtext{
+		background:blue;
+	}
+</style>
+<script src="../jquery/jquery-1.11.3.min.js"></script>
+<script>
+	$(document).ready(function(){
+		//alert("ok");
+		var str=$("span").text() + $("div").text() + $("b").text(); 
+		//alert(str);
+		
+		var result=$("span , div , b").text();
+		//alert(result);
+		
+		$("span").css("color", "red");
+		$("b").addClass("boldText");
+	})
+</script>
+</head>
+<body>
+	<span>simple 문서 앨러먼트입니다.SPAN</span>
+	<br/><br/>
+	
+	<div>simple 문서 앨러먼트입니다.DIV</div>
+	<br/><br/>
+	
+	<b>simple 문서 앨러먼트입니다.</b>
+</body>
+</html>

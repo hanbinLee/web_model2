@@ -33,7 +33,8 @@ public class ProxyAction implements CommandAction{
 			//System.out.println(result);
 			PrintWriter out = response.getWriter();
 			out.print(result);
-		}    		
+		}
+		
 		return null;
 	}
 	 
