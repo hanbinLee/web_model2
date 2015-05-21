@@ -8,9 +8,34 @@
 		font-size:12px;
 	}
 </style>
-<script type="text/javascript" src=""></script>
+<script type="text/javascript" src="../jquery/jquery-1.11.3.min.js"></script>
 <script type="text/javascript">
-
+	$(document).ready(function(){
+	/*
+		$("li:even").css("color" , "red");
+		$("li:odd").css("color" , "blue");
+		$("li:eq(2)").css("color" , "yellow");
+		$("li:first").css("color" , "pink");
+		$("li:last").css("color" , "#86E57F");
+		
+		$("li:gt(2)").css("color" , "red");
+		$("li:lt(2)").css("color" , "blue");
+		$("li:not(:eq(2))").css("font-weight" , "bold");
+		
+		$(".first > li:even").css("color" , "yellow");
+	*/	
+		$(".first > li:even").css("color" , "red");
+		$(".first > li:odd").css("color" , "blue");
+		
+		var array = ["red" , "black" , "yellow" , "blue"];
+		for(var i = 0 ; i < $(".second > li").length ; i ++){
+			$(".second > li:eq("+i+")").css("color" , array[i]);
+		}
+		
+		$(".third > li:gt(2)").css("color" , "red");
+		$(".third > li:lt(2)").css("color" , "blue");
+		
+	});
 </script>
 </head>
 <body>

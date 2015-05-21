@@ -2,32 +2,29 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>jQuery - 보임 필터 선택자</title>
+<title>jQuery Effects</title>
 <style type="text/css">
 	body{
-		font-size:20px;
+		font-size:13px;
 	}
 </style>
 <script type="text/javascript" src="../jquery/jquery-1.11.3.min.js"></script>
 <script type="text/javascript">
-	$(document).ready(function(){
-		$("li:hidden").fadeIn(5000);
+	$(function(){
+		$("#fadeOut").click(function(){
+			$("img").fadeOut(5000);
+		});
+		
+		$("#fadeIn").click(function(){
+			$("img").fadeIn(5000);
+		});
 	});
 </script>
 </head>
 <body>
-	<div>
-		<ul>
-			<li style="display:none">apple</li>
-			<li>banana</li>
-			<li>grape</li>
-		</ul>
-		
-		<ul>
-			<li>lion</li>
-			<li style="display:none">tiger</li>
-			<li>fox</li>
-		</ul>
-	</div>
+	<img src="../img/0.jpg" width="300" height="307" />
+	<br/>
+	<button id="fadeOut">fadeOut</button>
+	<button id="fadeIn">fadeIn</button>
 </body>
 </html>

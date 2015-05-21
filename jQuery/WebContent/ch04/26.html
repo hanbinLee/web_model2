@@ -8,9 +8,25 @@
 		font-size:12px;
 	}
 </style>
-<script type="text/javascript" src=""></script>
+<script type="text/javascript" src="../jquery/jquery-1.11.3.min.js"></script>
 <script type="text/javascript">
-	
+	$(document).ready(function(){
+		$("p").append("hoho");
+		$("ul").append("<li style='color:red'>잡채만두</li>");
+		
+		$("<li>찐만두</li>").appendTo("ul");
+		
+		$("ul").prepend("<li>김치만두</li>");
+		$("<li>왕만두</li>").prependTo("ul");
+		
+		$("ul").after("<li style='color:pink'>순대</li>");
+		$("ul").before("<li style='color:pink'>그냥</li>");
+		
+		$("<li>튀김</li>").insertAfter("ul");
+		$("<li>떡볶이</li>").insertBefore("ul");
+		
+		//$("ul").remove();
+	});
 </script>
 </head>
 <body>

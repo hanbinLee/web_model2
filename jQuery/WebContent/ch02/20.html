@@ -8,9 +8,17 @@
 		font-size:12px;
 	}
 </style>
-<script type="text/javascript" src=""></script>
+<script type="text/javascript" src="../jquery/jquery-1.11.3.min.js"></script>
 <script type="text/javascript">
-
+	$(document).ready(function(){
+		$("ul:has(li)").css({ //has(셀렉터) 후손 요소에서 일치하는 요소 반환
+			backgroundColor : "#9AB92E",
+			border : "1px solid #05184D"
+		});
+		
+		//$("li:empty").text("hahaha");
+		$("li:parent").css("color" , "red"); //parent : empty와 반대로 내용이 있는 태그선택
+	});
 </script>
 </head>
 <body>

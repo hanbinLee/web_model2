@@ -8,9 +8,16 @@
 		font-size:12px;
 	}
 </style>
-<script type="text/javascript" src=""></script>
+<script type="text/javascript" src="../jquery/jquery-1.11.3.min.js"></script>
 <script type="text/javascript">
-	
+	$(document).ready(function(){
+		//$("#first span").css("color" , "red");     //자손 span
+		//$("#first > span").css("color" , "red");  //자식 span
+		 
+		//$("#first").children().css("color" , "red");  // 자손
+		//$("#first").children("span").css("color", "red"); //자식
+		$("#first").find("span").css("color" , "red"); //자손
+	});
 </script>
 </head>
 <body>

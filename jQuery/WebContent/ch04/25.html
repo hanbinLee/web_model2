@@ -8,9 +8,23 @@
 		font-size:12px;
 	}
 </style>
-<script type="text/javascript" src=""></script>
+<script type="text/javascript" src="../jquery/jquery-1.11.3.min.js"></script>
 <script type="text/javascript">
-	
+	$(document).ready(function(){
+		var strHtml = $("#first").html();
+		var strText = $("#first").text();
+		
+		var arr = new Array();
+		
+		var str = "<b>여러분<b>";
+		
+		$("#second").html(str);
+		$("#third").text(str);
+		
+		arr.push("html : " + strHtml);
+		arr.push("text : " + strText);
+		//alert(arr.join("\n"));
+	});
 </script>
 </head>
 <body>

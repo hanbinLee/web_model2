@@ -8,9 +8,42 @@
 		font-size:12px;
 	}
 </style>
-<script type="text/javascript" src=""></script>
+<script type="text/javascript" src="../jquery/jquery-1.11.3.min.js"></script>
 <script type="text/javascript">
-	
+		$(document).ready(function(){
+			/*
+			$("#strawberry + div").css("color" , "red");
+			$("#strawberry ~ div").css("color" , "red");
+			
+			$("#strawberry").next().css("color" , "red");
+			$("#strawberry").nextAll().css("color" , "red");
+			
+			$("#strawberry").prev.css("color" , "red");
+			$("#strawberry").prevAll.css("color" , "red");
+			
+			$("#strawberry").siblings().css("color" , "red");
+			$("#strawberry").siblings("span").css("color" , "red");
+			$("#strawberry").siblings("#apple").css("color" , "red");
+			*/
+			var arr = new Array();
+			/*
+			$("#first").children().each(function(i , e){
+				arr.push(i + "," + e.tagName);
+			});
+			*/
+			
+			$("#melon").parent().each(function(i , e){
+				arr.push(i + "\n" + e + "\n" + e.tagName);
+			});
+			
+			arr.push("------------");
+			
+			$("#melon").parents().each(function(i , e){
+				arr.push(i + "\n" + e + "\n" + this.tagName);
+			});
+			
+			alert(arr.join("\n"));
+		});
 </script>
 </head>
 <body>	

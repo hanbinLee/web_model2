@@ -2,45 +2,28 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>jQuery - DOM 필터 메소드</title>
+<title>jQuery 이벤트</title>
 <style type="text/css">
 	body{
 		font-size:12px;
-	}
-	
-	.theme_hot {
-		width:300px;
-		background:#aaeeaa;
-		color:#404040
 	}
 </style>
 <script type="text/javascript" src="../jquery/jquery-1.11.3.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-		$("#content > li").first().click(function(){
-			//alert("1");
-			$(".theme_2").children("li").first().removeClass("theme_hot");
-			$(".theme_3").children('li').last().css("color","black");
-			$(".theme_1 > li").slice(2,4).addClass("theme_hot");
-			$(".theme_3").children("li").first().addClass("theme_hot");
+		
+		$("#menu").bind("click" , function(){  //bind 2개이상 이벤트 할때 사용
+			$(".theme_3").children().last().append("<li>aa </li>");
+			
+			$("menu").unbind("click");
 		});
 		
-		$("#content").children().last().click(function(){
-			//alert("2");
-			$(".theme_1").children("li").slice(2,4).removeClass("theme_hot");
-			$(".theme_3").children("li").first().removeClass("theme_hot");
-			$(".theme_2").children("li").first().addClass("theme_hot");
-			$(".theme_3").children('li').last().css("color","red");
-		})
 	});
 </script>
 </head>
 <body>
-	<div>
-		<ul id="content">
-			<li><a href="#">인기축제</a></li>
-			<li><a href="#">준비중인 축제</a></li>
-		</ul>
+	<div id="content">
+		<input type="button" id="menu" value="준비축제보기"/>
 	</div>
 	
 	<h2>주요지역별 축제 정보안내</h2>

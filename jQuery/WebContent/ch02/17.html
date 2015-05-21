@@ -8,9 +8,17 @@
 		font-size:12px;
 	}
 </style>
-<script type="text/javascript" src=""></script>
+<script type="text/javascript" src="../jquery/jquery-1.11.3.min.js"></script>
 <script type="text/javascript">
-
+	$(document).ready(function(){
+		//$("li:first").css("color" , "red");
+		//$(".first > li:first").css("color" ,"red");
+		$("li:first-child").css("color" , "red");
+		$("b:first-child").css("color" , "blue");
+		$("li:last-child").css("color" , "blue");
+		$("li:nth-child(2)").css("color" , "pink");
+		$("div b:only-child").css("color" , "yellow");
+	});
 </script>
 </head>
 <body>
@@ -21,6 +29,10 @@
 			<li>딸기</li>
 			<li>메론</li>
 		</ul>
+	</div>
+	
+	<div>
+		<b>apple</b>
 	</div>
 	
 	<div>

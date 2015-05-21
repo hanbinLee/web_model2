@@ -26,9 +26,17 @@
 		border:3px solid #f00;
 	}
 </style>
-<script type="text/javascript" src=""></script>
+<script type="text/javascript" src="../jquery/jquery-1.11.3.min.js"></script>
 <script type="text/javascript">
-
+	$(document).ready(function(){
+		//$("span[id]").addClass("spotlight");
+		$("span[id='simpletext1']").addClass("spotlight");
+		$("span[id!='simpletext1']").addClass("bluetext");
+		
+		$("span[id ^='complex']").addClass("largetext"); //id 시작부분이 complex...
+		$("span[id %='text1']").addClass("italctext"); // id 끝부분이 text1
+		$("span[id *= 'text']").addClass("box"); // id에 text가 포함
+	});
 </script>
 </head>
 <body>

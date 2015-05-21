@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>jQuery 이벤트</title>
+<style type="text/css">
+	body{
+		font-size:12px;
+		cursor:pointer;
+	}
+</style>
+<script type="text/javascript" src="../jquery/jquery-1.11.3.min.js"></script>
+<script type="text/javascript">
+	/*
+		이벤트 종류
+		마우스 이벤트 : click , mouseover , mouseout , mousedown , mouseup , dbclick , dragdrop
+		키보드 이벤트 : keydown , keyup , keypress
+		윈도우 이벤트 : load , unload , move , resize
+		포커스 이벤트 : blur , focus
+		폼  이벤트 : reset submit , select
+		그림 이벤트 : abort(이미지 읽다가 중단) , error(문서나 이미지를 읽다가 에러가 발생시)
+		
+		처리방식
+		1.객체에 직접 이벤트에 등록 : $(선택자).click(콜백함수) , $().blur()...
+		2. bind 메서드를 이용한 등록방법 : 다수 이벤트를 한번에 설정
+		3. unbind : ㅇㅣ벤트 제거
+		4. one : 단 한번만 이벤트 발생
+		5. on : 이전 학습은 이미 로드가 완료된 객체를 대상으로 이벤트를 할당했다면 , 동적으로 생성될 객체나 요소에 이벤트 할당
+		6. off : on 메서드에 의해 할당된 이벤트를 해제
+		7. hover : 마우스 in , out
+		8. change : 값이 변경될때 이벤트 발생
+		
+		효과
+		1. show , hide , toggle : 나타남 , 사라짐
+		2. fadeIn , fadeOut , fadeToggle : 불투명도로 점점 감소 , 나타남
+		3. slideUp , slideDown , slideToggle : 높이가 0에 가깝게 서서히 나타남 , 사라짐
+		
+		jQuert(document).ready(function(){});
+		$(document).ready(function(){});
+		$(function(){});
+	*/
+</script>
+</head>
+<body>
+	<img width="200" height="200" src=""/>
+	<img width="200" height="200" src=""/>
+	<br/><br/>
+	
+	<img id="hyd" width="200" height="200" src=""/>
+	<p></p>
+	<p></p>
+</body>
+</html>

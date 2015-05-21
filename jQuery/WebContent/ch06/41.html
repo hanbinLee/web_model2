@@ -2,32 +2,32 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>jQuery - 보임 필터 선택자</title>
+<title>jQuery 이벤트</title>
 <style type="text/css">
 	body{
-		font-size:20px;
+		font-size:12px;
 	}
 </style>
 <script type="text/javascript" src="../jquery/jquery-1.11.3.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-		$("li:hidden").fadeIn(5000);
+		$("img").bind({
+			mouseover : function(){
+				$("img").attr("src" , "../img/btn2.gif");
+			},
+			
+			mouseout : function(){
+				$("img").attr("src" , "../img/btn1.gif");
+			},
+			
+			click : function(){
+				alert("클릭하였습니다.")
+			}
+		});
 	});
 </script>
 </head>
 <body>
-	<div>
-		<ul>
-			<li style="display:none">apple</li>
-			<li>banana</li>
-			<li>grape</li>
-		</ul>
-		
-		<ul>
-			<li>lion</li>
-			<li style="display:none">tiger</li>
-			<li>fox</li>
-		</ul>
-	</div>
+	<img src="../img/btn1.gif"/>
 </body>
 </html>

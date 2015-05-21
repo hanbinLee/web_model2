@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>jQuery Effects</title>
+<style type="text/css">
+	body{
+		font-size:13px;
+	}
+</style>
+<script type="text/javascript" src="../jquery/jquery-1.11.3.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$("button:eq(0)").click(function(){
+			$("img:eq(0)").toggle("slow" , function(){
+				alert("ok");
+			});
+		});
+		
+		$("button:eq(1)").click(function(){
+			$("img:eq(1)").toggle();
+			$("img:eq(2)").toggle();
+		});
+	});
+</script>
+<body>
+	<button>TOOGLE</button><br/>
+	<img src="../img/0.jpg" width="300" height="300"/>
+	<br/>
+	
+	<button>TOOGEL</button><br/>
+	<img src="../img/1.jpg" width="300" height="300"/>
+	<img style="display:none" src="../img/2.jpg" width="300" height="300"/>
+</body>
+</html>

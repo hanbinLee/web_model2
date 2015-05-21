@@ -8,13 +8,42 @@
 		font-size:13px;
 	}
 </style>
-<script type="text/javascript" src=""></script>
+<script type="text/javascript" src="../jquery/jquery-1.11.3.min.js"></script>
 <script type="text/javascript">
-	
+	$(document).ready(function(){
+		$("#btn").click(function(){
+			var count = $("input[name = 'gender']:checked").length;
+			var str = $("input[name='gender']:checked").val();
+			if(count==0){
+				alert("성별을 체크하세요");
+				return ;
+			}
+			
+			alert(str);
+			
+			var s = "";
+			var arr = new Array();
+			
+			$("input[name = 'hobby']:checked").each(function(index , element){
+				arr.push(index,element);
+				//alert(arr.join("\n"));
+				
+				if(index == 1){ //element = this
+					//alert("1번지 값: " + $(element).val());
+				}
+				
+				s+=$(this).val()+",";
+			});
+			
+			//alert(s);
+			$("input[name='hobbyResult']").attr("value",s);
+			$("form").submit();
+		});
+	});
 </script>
 </head>
 <body>
-		<form action="#" method="post">	
+		<form action="#" method="get">	
 			<label>남</label>
 			<input type="radio" name="gender" value="남자" />
 			<label>여</label>

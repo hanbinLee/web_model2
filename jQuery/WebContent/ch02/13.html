@@ -13,9 +13,11 @@
 		width:500px;
 	}
 </style>
-<script type="text/javascript" src=""></script>
+<script type="text/javascript" src="../jquery/jquery-1.11.3.min.js"></script>
 <script type="text/javascript">
-
+	$(document).ready(function(){
+		$("label + input").css("border" , "1px solid red");
+	});
 </script>
 </head>
 <body>

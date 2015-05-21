@@ -2,34 +2,37 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>jQuery - DOM 함수</title>
+<title>jQuery 이벤트</title>
 <style type="text/css">
 	body{
 		font-size:12px;
 	}
+	ul{
+		float:left;margin:30px;
+	}
+	img{
+		border:0px;
+		width:300px;
+		hieght:300px;
+	}
 </style>
 <script type="text/javascript" src="../jquery/jquery-1.11.3.min.js"></script>
 <script type="text/javascript">
-	$(document).ready(function(){
-		$("a").click(function(){
-			//$("p").empty();       //p 태그가 없어지지않고 비우기만함
-			//$("p").text("hahaha");
-			$("p").remove();         //p 태그가 아에없어짐
+	$(function(){
+		
+		$("a").bind("click" , function(){
+			alert($(this).attr("href"));
+			$("img").attr("src" , $(this).attr("href"));
+			return false; //이동하지 말아라
 		});
 	});
 </script>
 </head>
 <body>
-	<a href="#">앨리먼트 비우기</a>
-	<div>
-		<p>사과</p>
-		바나나
-	</div>
-	
-	<p>
-		<span>딸기</span>
-	</p>
-	
-	<p>메론</p>
+	<ul>
+		<li><a href="../img/0.jpg">0</a></li>
+		<li><a href="../img/1.jpg">1</a></li>
+	</ul>	
+	<img />
 </body>
 </html>

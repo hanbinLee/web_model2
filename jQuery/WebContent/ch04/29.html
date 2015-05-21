@@ -14,9 +14,14 @@
 		list-style:none;
 	}
 </style>
-<script type="text/javascript" src=""></script>
+<script type="text/javascript" src="../jquery/jquery-1.11.3.min.js"></script>
 <script type="text/javascript">
-
+	$(document).ready(function(){
+		//alert("test");
+		$("#content > li:first").click(function(){
+			$("h2").replaceWith("<li class='festial'>봄여름축제안내</li>");
+		});
+	});
 </script>
 </head>
 <body>

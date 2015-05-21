@@ -11,8 +11,20 @@
 		width:250px;heigth:200px;margin:5px;
 	}	
 </style>
-<script type="text/javascript" src=""></script>
+<script type="text/javascript" src="../jquery/jquery-1.11.3.min.js"></script>
 <script type="text/javascript">
+	
+	$(document).ready(function(){
+		$("#btn").click(function(){
+			for(var i = 0 ; i < 3 ; i ++){
+				var rNum = Math.floor(Math.random()*3);
+				//alert(rNum);
+				$(".img_may").append("<img src=../img/"+rNum+".jpg>");
+			}
+			$(".img_may").append("<br/>");
+			
+		});
+	});
 	
 </script>
 </head>

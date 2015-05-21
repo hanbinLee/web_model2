@@ -8,9 +8,14 @@
 		font-size:12px;
 	}
 </style>
-<script type="text/javascript" src=""></script>
+<script type="text/javascript" src="../jquery/jquery-1.11.3.min.js"></script>
 <script type="text/javascript">
-	
+	$(document).ready(function(){
+		$("a").click(function(){
+			$("b:eq(1)").clone().appendTo("div");  //clone 있으면 복사
+			$("div").append($("b:eq(0)"));    //clone 없으면 이동 
+		});
+	});
 </script>
 </head>
 <body>	

@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>jQuery 이벤트</title>
+<style type="text/css">
+	body{
+		font-size:12px;
+	}
+	.smallimg{
+		width:300px;height:300px;
+	}
+	.bigimg{
+		width:600px;height:600px;
+	}
+</style>
+<script type="text/javascript" src="../jquery/jquery-1.11.3.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#big").click(function(){
+			$("img").addClass("bigimg");
+		});
+		
+		$("#small").bind("click" , function(){
+			$("img").removeClass("bigimg");
+			$("img").addClass("smallimg");
+		});
+	});
+</script>
+</head>
+<body>
+	<a href="#" id="big">클릭 확대</a>&nbsp;&nbsp;
+	<a href="#" id="small">클릭 축소</a>
+	<br /><br/>
+	
+	<img src="../img/1.jpg" width="300" height="300"/>
+</body>
+</html>

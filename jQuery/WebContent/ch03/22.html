@@ -8,9 +8,22 @@
 		font-size:12px;
 	}
 </style>
-<script type="text/javascript" src=""></script>
+<script type="text/javascript" src="../jquery/jquery-1.11.3.min.js"></script>
 <script type="text/javascript">
-
+	$(document).ready(function(){
+		$("input[type='text']").attr("placeholder" , "값을 입력하세요");
+		$("input[type='text']").click(function(){
+			$(this).attr("value" , "");
+		});
+		
+		$("input[type='button']").click(function(){
+			var arr = new Array();
+			arr.push($("input[name='email']").val());
+			arr.push($("input[name='email']").attr("id"));
+			
+			alert(arr.join("\n"));
+		});
+	});
 </script>
 </head>
 <body>
