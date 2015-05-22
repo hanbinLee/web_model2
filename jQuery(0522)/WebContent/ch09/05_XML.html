@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Insert title here</title>
+<script type="text/javascript" src="../jquery/jquery.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$.ajax({
+			url:"05_XML.xml",
+			type:"GET",
+			dataType:"xml",
+			success:function(data){
+				var studentList=$(data).find("student");
+				//alert(studentList.length);
+				
+				$.each(studentList, function(index){
+					var student=studentList.eq(index);
+					var studentText="<span>"+student.children("stdNumber").text()+"</span>&nbsp;&nbsp;";
+					studentText+="<span>"+student.children("stdName").text()+"</span>&nbsp;&nbsp;";
+					studentText+="<span>"+student.children("score").text()+"</span><br/>";
+					
+					$("#resultDisp").append(studentText);
+				});
+				
+			},
+			error:function(xhr, status, error){
+				var arr=new Array();
+				arr.push("xhr:"+xhr);
+				arr.push("status:"+status);
+				arr.push("error:"+error);
+				
+				alert(arr);
+			}
+		});
+	});
+</script>
+</head>
+<body>
+	<div id="resultDisp"></div>
+</body>
+</html>

@@ -23,28 +23,28 @@
 		background:#00F;
 	}
 </style>
-<script type="text/javascript" src="../jquery/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="../jquery/jquery.js"></script>
 <script type="text/javascript">
-	$(function(){
+	$(document).ready(function(){
 		$("button").click(function(){
-			$("img").fadeTo("slow" , $(this).attr("title"));
+			$("img").fadeTo("slow",$(this).attr("title"));		//fadeTo("",0~1사이 수);
 		});
 		
 		$("#red").click(function(){
-			$(this).fadeTo("slow" , 0.3);	
+			$(this).fadeTo("slow",0.3);
 		});
 		
 		$("#green").click(function(){
-			$(this).fadeTo("slow" , 0.6);
-		})
+			$(this).fadeTo("slow",0.6);
+		});
 		
-		$("#red").click(function(){
-			$(this).fadeTo("slow" , 0);	
+		$("#blue").click(function(){
+			$(this).fadeTo("slow",0.9);
 		});
 	});
 </script>
 <body>
-	<img src="../img/0.jpg" width="300" height="307" />
+	<img src="../img/Chrysanthemum.jpg" width="300" height="307" />
 	<br/>
 	<button title="0">0</button>
 	<button title="0.3">0.3</button>

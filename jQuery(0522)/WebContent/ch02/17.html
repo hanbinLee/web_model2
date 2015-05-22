@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>jQuery - 자식 요소 필터 선택자</title>
+<style type="text/css">
+	body{
+		font-size:12px;
+	}
+</style>
+<script type="text/javascript" src="../jquery/jquery.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		//$("li:first").css("color","red");				//사과
+		//$(".first > li:first").css("color","red");	//사과
+		$("li:first-child").css("color","red");			//사과, 짜장면, 커피
+			//모든 li의 각각의 첫번째 자식
+		$("b:first-child").css("color","olive");		//가, 다, apple
+		
+		$("li:last-child").css("color","pink");			//메론, 탕수육, 우유
+		
+		$("li:nth-child(2)").css("color","blue");		//바나나, 우동, 콜라	 
+			//index가 아니네 0번지부터가 아니라 첫번째자식, 두번째자식
+			//nth-child(odd), nth-child(even)...등등
+		$("div b:only-child").css("color","yellow");	//apple
+			//div태그의 자식 중 자식을 하나만 가지는 b태그
+		
+	});
+</script>
+</head>
+<body>
+	<div>
+		<ul class="first">
+			<li>사과</li>
+			<li>바나나</li>
+			<li>딸기</li>
+			<li>메론</li>
+		</ul>
+	</div>
+	
+	<div>
+		<b>가</b>
+		<b>나</b>
+	</div>
+	
+	<div>
+		<div>
+			<b>다</b>
+			<b>라</b>
+		</div>
+	</div>
+	
+	<div>
+		<b>apple</b>
+	</div>
+	
+	<div>
+		<ul class="second">
+			<li>짜장면</li>
+			<li>우동</li>
+			<li>짬뽕</li>
+			<li>탕수육</li>
+		</ul>
+	</div>
+	
+	<div>
+		<ul class="third">
+			<li>커피</li>
+			<li>콜라</li>
+			<li>사이다</li>
+			<li>환타</li>
+			<li>우유</li>
+		</ul>
+	</div>
+</body>
+</html>

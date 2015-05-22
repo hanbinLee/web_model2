@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Insert title here</title>
+
+<script type="text/javascript" src="../jquery/jquery.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#menu1").click(function(){
+			//alert("OK");
+			//전송방식, 서버주소, 처리함수, 데이터 값
+			$.ajax({
+				url:"01_menu.html",		//서버주소
+				type:"GET",				//전송방식
+				dataType:"html",		//데이터 값
+				success:function(data){
+					//다 제대로 넘어왔으면 이 함수를 실행 -> if(xhr.readyState==4 && xhr.status==200) 이건가?
+					//data는 01_menu.html이 통채로 다아아아아 넘어온거 
+					//<?xml version="1.0" encoding="UTF-8" ?> 이것부터 </html>이것까지 다아
+					$("#message1").html(data);			//.html은 responseText이거 대신인가아???
+				}
+			});
+		});
+		
+		$("#menu2").click(function(){
+			$.ajax({
+				url:"01_menu.html",		
+				type:"GET",				
+				dataType:"html",		
+				success:function(data){
+					$("#message2").html($(data).find("li"));
+					//data는 object이므로 $()로 감싸서 find함수를 사용. li태그만 뽑아서 mesage2 span에 뿌려주라
+					//$(data).find("li")
+				}
+			});
+		});
+	});
+</script>
+</head>
+<body>
+	<div>
+		<a href="#" id="menu1">메뉴보기1</a>
+		<span id="message1"></span>
+	</div>
+	
+	<div>
+		<a href="#" id="menu2">메뉴보기2</a>
+		<span id="message2" style="color:red;"></span>
+	</div>
+</body>
+</html>

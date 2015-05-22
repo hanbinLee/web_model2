@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>jQuery 이벤트</title>
+<style type="text/css">
+	body{
+		font-size:12px;
+	}
+	li{cursor:pointer}
+	 
+	.menu1{width:300px;border:thin dashed #ee99aa}
+	.menulist{font-family:tahoma;color:#99eeaa}
+</style>
+<script type="text/javascript" src="../jquery/jquery.js"></script>
+<script type="text/javascript">
+ 	$(document).ready(function(){
+ 	/*  	$("#one").click(function(){
+ 			$(".menu").append("<li>여름-냉면</li>");
+ 			$(".menu").append("<li>여름-콩국수</li>");
+ 			$("#one").unbind("click");		//이벤트를 한 번만 띄우려면 unbind를 해줘야하는데..
+ 		});		 */ 
+ 		
+ 		//one이란 함수가 있다. -> unbind함수를 사용하지 않고 한번만 이벤트가 실행되도록 하는 함수 
+ 	 	$("#one").one("click",function(){
+ 			$(".menu").append("<li>여름-냉면</li>");
+ 			$(".menu").append("<li>여름-콩국수</li>");
+ 		});
+ 	 	
+ 	 	$("li").click(function(){
+ 	 		alert("국내산 식재료 사용");
+ 	 		//이벤트로 추가적으로 더해진 <li>(즉, 여름-냉면하고 콩국수)는 li태그에 걸려있는 이벤트가 실행되지 않는다.
+ 	 		
+ 	 	});	
+ 	 	
+ 	 	//냉면하고 콩국수에도 이벤트가 실행되게 하는 함수 : on (off도 있음.)
+ 	 	$(".menu").on("click","li",function(){
+ 	 		//.menu의 자식 중 li에만 click이벤트를 걸어준 것.
+ 	 		//그냥 처음부터 $("li").click(function(){}); 이렇게 이벤트를 걸면 냉면하고 콩국수에는 이벤트가 걸리지 않으니까.
+ 	 		alert("야호");
+ 	 	});
+ 	 	
+ 	 	$("#two").click(function(){
+ 	 		$(".menu").off("click");
+ 	 		//.menu에 걸린 이벤트를 삭제? - unbind와는 무슨 차이??
+ 	 	});
+ 	 	
+ 	 	//on()이 bind,?,? 이 세 함수의 기능을 모두 하고 있는 함수인데,
+ 	 	//1.7버전이후에는 on()을 권장하고 있대용
+	});	 
+
+</script>
+</head>
+<body>
+	<button id="one">계절메뉴보기</button>
+	<button id="two">메시지 정보 안보이기</button>
+	
+	<div>
+		<h2>차림표</h2>
+		<ul class="menu">
+			<li>연근조림</li>
+			<li>새싹샐러드</li>
+			<li>오이초무침</li>
+			<li>나물무침</li>
+		</ul>
+	</div>
+</body>
+</html>

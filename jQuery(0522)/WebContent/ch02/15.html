@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>jQuery - 기본 필터 선택자</title>
+<style type="text/css">
+	body{
+		font-size:12px;
+		
+	}
+</style>
+<script type="text/javascript" src="../jquery/jquery.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		
+	/* 	$("li:even").css("color","red");		//li태그들 중 짝수번째 태그
+		$("li:odd").css("color","blue");		//li태그들 중 홀수번째 태그
+		$("li:eq(2)").css("color","yellow");	//li태그들 중 index가 두 번째 태그
+		$("li:first").css("color","pink");		//li태그들 중 첫 번째 태그
+		$("li:last").css("color","olive");		//li태그들 중 마지막 태그
+		
+		$("li:gt(2)").css("color","lime");		//li태그들 중 2번지 보다 큰 태그
+		$("li:lt(2)").css("color","navy");		//li태그들 중 2번지 보다 작은 태그
+		//2번지인 태그는 기존의 자기의 색을 유지한다.
+		
+		$("li:not(:eq(2))").css("font-weight","bold");	//li태그들 중 2번지가 아닌 태그들		 */
+		
+		//클래스를 기준으로 자식 내에서 li태그들 index에 맞게 뽑아오기
+		$(".first > li:even").css("color","red");
+		$(".first > li:odd").css("color","blue");
+		
+		$(".second > li:eq(0)").css("color","red");
+		$(".second > li:eq(1)").css("color","black");
+		$(".second > li:eq(2)").css("color","yellow");
+		$(".second > li:eq(3)").css("color","blue");
+		
+		$(".third > li:eq(2)").css("color","black");
+		$(".third > li:gt(2)").css("color","red");
+		$(".third > li:lt(2)").css("color","blue");
+		$(".third > li:not(:eq(2))").css("font-weight","bold");
+	});
+</script>
+</head>
+<body>
+	<div>
+		<ul class="first">
+			<li>사과</li>
+			<li>바나나</li>
+			<li>딸기</li>
+			<li>메론</li>
+		</ul>
+	</div>
+	
+	<div>
+		<ul class="second">
+			<li>짜장면</li>
+			<li>우동</li>
+			<li>짬뽕</li>
+			<li>탕수육</li>
+		</ul>
+	</div>
+	
+	<div>
+		<ul class="third">
+			<li>커피</li>
+			<li>콜라</li>
+			<li>사이다</li>
+			<li>환타</li>
+			<li>우유</li>
+		</ul>
+	</div>
+</body>
+</html>

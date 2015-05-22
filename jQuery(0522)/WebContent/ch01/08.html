@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>jQuery - 실습문제 </title>
+<style type="text/css">
+	body{
+		font-size:30px;
+		cursor:pointer;
+	}
+	.first{
+		color:#ff0000;
+	}
+	.second{
+		color:blue;
+	}
+</style>
+<script type="text/javascript" src="../jquery/jquery.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$(".first").click(function(){
+			$(this).hide();			//$(this).hide("slow");  //얘는 천천히 사라져라
+		});
+		
+		$(".second").click(function(){
+			//$(".first").show();
+			$(".first").toggle();		//한번은 나타나고 한번은 사라지고를 반복
+		});
+		
+		$("#btn1").click(function(){
+			$(".second").fadeOut(1000);	//duration 2000 : 2초동안 사라짐
+		});
+		
+		$("#btn2").click(function(){
+			$(".second").fadeIn(1000);	//duration 2000 : 2초동안 나타남
+		});
+		
+		$("#btn3").click(function(){
+			$(".second").fadeToggle(1000);	//duration 2000 : (2초동안 사라짐/나타남)을 반복
+		});
+		
+	});
+</script>
+</head>
+<body>
+	<div class="first">테스트1</div>
+	<div class="second">테스트2</div>
+	<div class="first">테스트3</div>
+	<div class="second">테스트4</div>
+	<br/><br/>
+	
+	<input type="button" id="btn1" value="사라짐"/>
+	<input type="button" id="btn2" value="나타남"/>
+	<input type="button" id="btn3" value="사라짐나타남"/>
+</body>
+</html>

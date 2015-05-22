@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>jQuery Effects</title>
+<style type="text/css">
+	body{
+		font-size:13px;
+	}
+	span{
+		color:red; cursor:pointer;
+	}
+	div{
+		width:80px;height:80px;margin:3px;
+		display:none; float:left;
+	}
+	div#red{
+		background:#F00;
+	}
+	div#green{
+		background:#0F0;
+	}
+	div#blue{
+		background:#00F;
+	}
+</style>
+<script type="text/javascript" src="../jquery/jquery.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#start").click(function(){
+			//시작하자마자 div는 모두 hidden인 상태. (위의 style에서 div상태를 display:none;으로 걸어줌)
+			//hidden상태인 div들 중 첫번째 div를 보여지게 하면
+			//두번째 div가 hidden상태인 div들 중 첫번째 div가 되게 된다.
+			$("div:hidden").first().fadeIn("slow");
+		});
+	});
+</script>
+
+</head>
+<body>
+	<span id="start">클릭</span><br/>
+	<div id="red"></div>
+	<div id="green"></div>
+	<div id="blue"></div>
+</body>
+</html>

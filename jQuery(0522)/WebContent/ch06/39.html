@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>jQuery 이벤트</title>
+<style type="text/css">
+	body{
+		font-size:12px;
+	}
+	ul{
+		float:left;margin:30px;
+	}
+	img{
+		border:0px;
+		width:300px;
+		hieght:300px;
+	}
+</style>
+<script type="text/javascript" src="../jquery/jquery.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("a").bind("click",function(){
+			//alert($(this).attr("href"));
+			//this는 이벤트가 발생한 a태그를 의미한다.
+			
+			$("img").attr("src",$(this).attr("href"));
+			return false;
+			//body에 있는 img태그의 속성을 설정해준 것.
+			//이벤트가 발생한 a태그가 가지는 주소를 속성으로 설정
+			//그리도 a태그에 의한 페이지 이동을 return false로 막음.
+			
+		});
+	});
+</script>
+</head>
+<body>
+	<ul>
+		<li><a href="../img/Hydrangeas.jpg">Hydrangeas</a></li>
+		<li><a href="../img/Tulips.jpg">Desert</a></li>
+	</ul>	
+	<img />
+</body>
+</html>

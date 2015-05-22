@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../jquery/jquery-1.11.3.min.js"></script>
+<script>
+	$(function(){
+		$.ajax(
+			{
+				url:"02_str.txt",
+				type:"get",
+				dataType:"text",
+				success:function(data){
+					$("#resultDisplay").text(data);
+				}
+			}		
+		);
+	});
+</script>
+</head>
+<body>
+	<div id="resultDisplay"></div>
+</body>
+</html>

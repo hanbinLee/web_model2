@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Insert title here</title>
+<script type="text/javascript" src="../jquery/jquery.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		var str="id=123&password=123456";		//그냥	
+		
+		$("#menu1").click(function(){
+			//GET			
+			$.get("01_menu.html",str,function(data){	//서버로부터 받아오는 dataType은 상관이 없나봐
+				$("#message1").html(data);				
+			});
+		});		
+		
+		$("#menu2").click(function(){
+			//POST
+			$.post("01_menu.html",str,function(data,error){
+				$("#message2").html(data);
+			});
+		});
+		
+		$("#menu3").click(function(){
+			//JSON
+			$.getJSON("04_json.txt",function(data,error){
+				var memberList=data.member;
+				alert(memberList.length);
+			});
+		});
+	});
+</script>
+</head>
+<body>
+	<div>
+		<a href="#" id="menu1">메뉴보기1</a>
+		<span id="message1"></span>
+	</div>
+	
+	<div>
+		<a href="#" id="menu2">메뉴보기2</a>
+		<span id="message2" style="color:red;"></span>
+	</div>
+	
+	<div>
+		<a href="#" id="menu3">메뉴보기3</a>
+		<span id="message3" style="color:olive;"></span>
+	</div>
+	
+</body>
+</html>

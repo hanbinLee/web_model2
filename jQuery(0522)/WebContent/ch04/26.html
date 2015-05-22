@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>jQuery - DOM 함수</title>
+<style type="text/css">
+	body{
+		font-size:12px;
+	}
+</style>
+<script type="text/javascript" src="../jquery/jquery.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		//맨 뒤 자식으로 붙이기		
+		$("p").append("일등품질 일등서비스 복체");
+		//p태그 내부의 맨 아래 자식으로 붙음 -> p태그 내부에 붙음.		
+		$("ul").append("<li style='color:red'>치즈만두</li>");		
+		
+		$("<li style='color:red'>갈비만두</li>").appendTo("ul");
+		//$(타겟)을 ul의 맨 뒤 자식으로 붙임.
+	
+		//맨 앞 자식으로 붙이기
+		$("ul").prepend("<li style='color:blue'>김치만두</li>");
+		$("<li style='color:blue'>양고기만두</li>").prependTo("ul");
+		
+		//ul의 형제노드(뒤) 붙이기
+		$("ul").after("<li style='color:pink'>찹쌀 순대</li>");
+		$("<li style='color:pink'>오징어 순대</li>").insertAfter("ul");
+		
+		//ul의 형제노드(앞) 붙이기
+		$("ul").before("<li style='color:olive'>쌀 떡볶이</li>");
+		$("<li style='color:olive'>치즈 떡볶이</li>").insertBefore("ul");
+		
+		//ul태그 삭제(자식까지도)
+		//$("ul").remove();
+		
+	});
+</script>
+</head>
+<body>
+	<div id="first">
+		안녕하세요. <br/>
+		<p> 
+			맛의 혁신을 이룩하기 위한 
+		 	우리 복채손 만두의 노력은 계속 됩니다. <br/>
+			한결같은 맛과 서비스로 여러분 한분 한분 모시고 있습니다. <br/>
+		</p>
+		
+		<b>만두 메뉴</b>
+		<ul>
+			<li>물만두</li>
+			<li>군만두</li>
+		</ul>
+	</div>
+</body>
+</html>

@@ -1,0 +1,18 @@
+{
+	"member":[
+		{
+			"stdNumber" : "100" , 
+			"stdName" : "홍길동" , 
+			"score" : "80"
+		},
+		{
+			"stdNumber" : "101" , 
+			"stdName" : "김길동" , 
+			"score" : "50"		
+		},
+		{
+			"stdNumber" : "102" , 
+			"stdName" : "박길동" , 
+			"score" : "100"
+		}]
+}

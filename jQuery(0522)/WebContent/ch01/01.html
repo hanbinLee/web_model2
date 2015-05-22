@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>JQuery Start</title>
+	<script type="text/javascript" src="../jquery/jquery.js"></script>
+	<script type="text/javascript">
+	/* 	var obj=jQuery(document);	//생성자를 통해 객체생성
+		obj.ready(testFun);			//jQuery에서 제공하는 ready라는 함수 
+									//ready함수 : body가 시작되면 실행되는 함수. : <body onload(testFun)>과 같은 역할
+									//그래서 ready함수는 한 번 밖에 사용할 수가 없다.
+									//testFun함수로 넘어가라는 handler		 */
+		
+		jQuery(document).ready(testFun);	//jQuery 생성한 것을 obj에 담지 않고 바로 ready함수를 사용가능하다. 
+									
+		function testFun(){
+			alert("시작합니다.");
+		}								
+		
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

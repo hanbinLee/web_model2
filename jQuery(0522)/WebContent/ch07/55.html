@@ -13,7 +13,7 @@
 		height:90px;
 	}
 	div{
-		position:absolute;width:400px;height:65px;
+		position:absolute;width:400px;height:65px;		/* position:absolute는 스크린 기준의 절대위치 */
 		font-size:36px;text-align:center;color:yellow;
 		background:red;
 		padding-top:25px;
@@ -23,9 +23,9 @@
 		display:none;
 	}
 </style>
-<script type="text/javascript" src="../jquery/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="../jquery/jquery.js"></script>
 <script type="text/javascript">
-	$(function(){
+	$(document).ready(function(){
 		$("#fadeIn").click(function(){
 			$("div").fadeIn(3000,function(){
 				$("span").fadeIn(100);
@@ -37,7 +37,7 @@
 		});
 		
 		$("#fadeToggle").click(function(){
-			$("div").fadeToggle(3000 , function(){
+			$("div").fadeToggle(3000,function(){
 				$("span").fadeIn(100);
 			});
 		});

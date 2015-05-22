@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>jQuery - DOM 탐색 메소드</title>
+<style type="text/css">
+	body{
+		font-size:12px;
+	}
+</style>
+<script type="text/javascript" src="../jquery/jquery.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		//1. first div의 자손 중 span들을 찾아라
+				//2-2버전
+			//$("#first span").css("color","red");	
+		
+				//3-2버전
+			//$("#first").find("span").css("color","red");		//#first에 속해있는 모든 태그들 중 중 span태그들
+			
+		//2. first div의 자식 중 span들을 찾아라
+				//2-2버전
+			//$("#first > span").css("color","blue"); 
+	
+				//3-2버전
+			//$("#first").children().css("color","red");		//#first의 모든 자식들
+			//$("#first").children("span").css("color","red");	//#first의 모든 자식들 중 span태그들	
+		
+		//$("#first").children()이 자식인지 자손인지 헷갈리면 찍어보자.
+		var array=new Array();
+		$("#first").children().each(function(i, e){
+			array.push(i+","+e.tagName);
+		});
+		
+		alert(array.join("\n"));
+		
+	});
+</script>
+</head>
+<body>
+	<div>사과</div>
+	
+	<div id="first">
+		<span>바나나</span>
+		<span>딸기</span>
+		
+		<div>
+			<span>수박</span>
+			<span>메론</span>
+		</div>
+		
+		<b>아메리카노 커피</b>
+	</div>
+</body>
+</html>

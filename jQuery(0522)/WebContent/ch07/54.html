@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	.box{
+		width:100px;
+		height:100px;
+		border:3px solid black;
+	}
+	/* position:absolute -> 스크린에 대한 절대 위치. 몸통을 기준으로 left와 top을 주면 된다. 이렇게 하면 태그를 태그 위에 붙일 수도 있다. */
+	/* position:realtive -> 상대 위치. 바로 위의 태그를 기준으로 left와 top을 주면 된다. */
+	#a{background-color:#fc0;} 
+	#b{position:absolute;left:30px;top:30px;background-color:#690;}
+	#c{background-color:#0cf;}
+</style>
+</head>
+<body>
+	<div class="box" id="a">box1</div>
+	<div class="box" id="b">box2</div>
+	<div class="box" id="c">box3</div>
+</body>
+</html>

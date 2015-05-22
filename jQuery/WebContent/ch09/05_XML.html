@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../jquery/jquery-1.11.3.min.js"></script>
+<script>
+	$(function(){
+		$.ajax({
+			url:"05_XML.xml",
+			type:"get",
+			dataType:"xml",
+			success:function(data){
+				var studentList = $(data).find("student");
+				//alert(memberList.length);
+				$.each(studentList , function(index){
+					//var student = studentList[index];
+					var student = studentList.eq(index);
+					var text = "<span>" + student.children("stdNumber").text() +"</span>&nbsp;";
+					text +="<span>" + student.children("stdName").text() +"</span>&nbsp;";
+					text +="<span>" + student.children("score").text()+"</span><br/>" ;
+					
+					$("#result").append(text);
+				});
+			},
+			error:function(x,s,e){
+			}
+		});
+	});
+</script>
+</head>
+<body>
+	<div id="result"></div>
+</body>
+</html>

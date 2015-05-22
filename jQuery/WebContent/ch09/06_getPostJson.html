@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../jquery/jquery-1.11.3.min.js"></script>
+<script>
+	$(function(){
+		$("#menu1").click(function(){
+			//var str = "id="+id+"&password="+password; 
+			$.get("01_menu.html" , function(data,error){
+				$("#message1").html(data);	
+			});
+		});
+		
+		$("#menu2").click(function(){
+			var str = "id=aa"+"&password=pp";
+			$.post("01_menu.html" , str , function(data , error){
+				$("#message2").html(data);
+			});
+			
+		});
+		
+		$("#menu3").click(function(){
+			$.getJSON("04_json.txt" , function(data,error){
+				var memberList = data.member;
+				alert(memberList.length);
+			});
+		});
+	});
+</script>
+</head>
+<body>
+	<div>
+		<a href="#" id="menu1">메뉴보기1</a>
+		<span id="message1"></span>
+	</div>
+	
+	<div>
+		<a href="#" id="menu2">메뉴보기2</a>
+		<span id="message2" style="color:red;"></span>
+	</div>
+	
+	<div>
+		<a href="#" id="menu3">메뉴보기3</a>
+		<span id="message3"></span>
+	</div>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>JQuery Animations</title>
+<style type="text/css">
+	body{font-size:12px;}
+	div {margin-bottom:50px;}
+	a{text-decoration:none;}
+	#box1 {
+		background: #F00;
+		height: 50px;
+		width: 50px;
+		position: relative;
+	}
+	#box2 {
+		background: #FF0;
+		height: 50px;
+		width: 50px;
+		position: relative;
+	}
+</style>
+<script type="text/javascript" src="../jquery/jquery-1.11.3.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		/*
+			에니메이션 중지
+			형식) stop(clearQueue , jumpToEnd);
+			clearQueue:큐에 대기하고있는 효과를 삭제
+		*/
+		$("#startbtn1").click(function(){
+			$("#box1").animate(
+				{
+					opacity : 0.1 , 
+					left : 500
+				} , 1000);
+			
+			$("#box1").animate(
+				{
+					opacity : 0.4,
+					top : 0,
+					left : 100,
+					height : 100,
+					width : 100
+				} , 1000	);
+			
+			$("#box1").slideUp(1000);
+			$("#box1").slideDown(1000);
+			$("#box1").animate({left:0},1000);
+		});
+	
+		$("#stopbtn1").click(function(){
+			$("#box1").stop(true , false);
+		});
+		
+		$("#startbtn2").click(function(){
+			$("#box2").animate(
+				{
+					opacity : 0.1 , 
+					left : 500
+				} , 1000);
+			
+			$("#box2").animate(
+				{
+					opacity : 0.4,
+					top : 0,
+					left : 100,
+					height : 100,
+					width : 100
+				} , 1000	);
+			
+			$("#box2").slideUp(1000);
+			$("#box2").slideDown(1000);
+			$("#box2").animate({left:0},1000);
+		});
+	
+		$("#stopbtn2").click(function(){
+			$("#box2").stop(false , true);
+		});
+	});
+</script>
+</head>
+<body>
+	<a href="#" id="startbtn1">효과시작</a> &nbsp; 
+	<a href="#" id="stopbtn1">효과중지(true,false)</a>
+	<div id="box1"></div>
+	
+	<a href="#" id="startbtn2">효과시작</a> &nbsp; 
+	<a href="#" id="stopbtn2">효과중지(false,true)</a>
+	<div id="box2"></div>
+</body>
+</html>
