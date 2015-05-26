@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.mybatis.example.BlogMapper">
+  
+  <insert id="replyWrite" parameterType="replyModel.ReplyDto">
+  	<![CDATA[insert into reply values(reply_bunho_seq.nextval, #{board_number}, #{line_reply}) ]]>
+  </insert>
+  
+  <select id="replyGetBunho" resultType="int">
+  	<![CDATA[select nvl(max(bunho),0) from reply ]]>
+  </select>
+  
+  <select id="replyList" parameterType="int" resultType="replyModel.ReplyDto">
+  	<![CDATA[select * from reply where board_number=#{board_number} order by bunho desc]]>
+  </select>
+  
+  <delete id="replyDelete" parameterType="int">
+  	<![CDATA[delete from reply where bunho=#{bunho} ]]>
+  </delete>
+  
+  <select id="bunho" parameterType="int" resultType="replyModel.ReplyDto">
+  	select * from reply where bunho=#{bunho}
+  </select>
+  
+</mapper>
