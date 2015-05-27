@@ -1,16 +1,16 @@
-package org.java.quiz02;
+package org.java.quiz03_2;
 
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class MainClass {
 	public static void main(String[] args) {
-		AbstractApplicationContext ctx = new ClassPathXmlApplicationContext("org/java/quiz02/appCTX.xml");
+		AbstractApplicationContext ctx 
+				= new ClassPathXmlApplicationContext("org/java/quiz03_2/appCTX.xml");
 		
-		Sungjuk sj = ctx.getBean("sungjuk" , Sungjuk.class);
-		sj.disp();
+		SungjukBan sjb = ctx.getBean("sjb",SungjukBan.class);
+		sjb.disp();
 		
 		ctx.close();
-
 	}
 }

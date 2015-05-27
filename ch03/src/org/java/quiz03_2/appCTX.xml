@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+       
+       <bean id="kim" class="org.java.quiz03_2.Sungjuk">
+       		<constructor-arg value="김길동"/>
+       		<constructor-arg value="1"/>
+       		<constructor-arg value="1"/>
+       		<constructor-arg value="1"/>
+       </bean>
+       
+       <bean id="park" class="org.java.quiz03_2.Sungjuk">
+		<constructor-arg value="박길동"/>
+		<constructor-arg value="2"/>
+		<constructor-arg value="2"/>
+		<constructor-arg value="2"/>
+	</bean>
+       
+       <bean id="sjb" class="org.java.quiz03_2.SungjukBan">
+       		<constructor-arg>
+       			<map>
+       				<entry>
+       					<key><value>a</value></key>
+       					<ref bean="kim"/>
+       				</entry>
+       				
+       				<entry>
+       					<key><value>b</value></key>
+       					<ref bean="park"/>
+       				</entry>
+       			</map>
+       		</constructor-arg>
+       </bean>
+</beans>

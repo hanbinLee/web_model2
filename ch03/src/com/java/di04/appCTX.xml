@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="aa" class="com.java.di04.AA">
+		<constructor-arg value="10"/>
+		<constructor-arg value="20"/>
+	</bean>
+	
+	<bean id="bb" class="com.java.di04.BB">
+		<property name="a" value="77" />
+		<property name="b" value="99" />
+	</bean>
+	
+	<bean id="cc" class="com.java.di04.CC">
+		<constructor-arg ref="aa"/>
+		<property name="bb" ref="bb"/>
+	</bean>
+</beans>

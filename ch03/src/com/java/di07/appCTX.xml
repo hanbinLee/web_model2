@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="hong" class="com.java.di07.Student">
+		<constructor-arg value="홍길동"/>
+		<constructor-arg value="10살"/>
+		<constructor-arg value="3학년"/>
+		<constructor-arg value="2반"/>
+	</bean>
+	
+	<bean id="lee" class="com.java.di07.Student">
+		<constructor-arg value="이길동"/>
+		<constructor-arg value="9살"/>
+		<constructor-arg value="1학년"/>
+		<constructor-arg value="12반"/>
+	</bean>
+	
+	<bean id="cho" class="com.java.di07.Student">
+		<constructor-arg value="조길동"/>
+		<constructor-arg value="13살"/>
+		<constructor-arg value="6학년"/>
+		<constructor-arg value="5반"/>
+	</bean>
+	
+	<bean id="studentInfo" class="com.java.di07.StudentInfo">
+		<constructor-arg>
+			<map>
+				<entry>
+					<key><value>aKey</value></key>
+					<ref bean="hong"/>
+				</entry>
+				
+				<entry>
+					<key><value>bKey</value></key>
+					<ref bean="cho"/>
+				</entry>
+				
+				<entry>
+					<key><value>cKey</value></key>
+					<ref bean="lee"/>
+				</entry>
+			</map>
+		</constructor-arg>
+	</bean>
+</beans>

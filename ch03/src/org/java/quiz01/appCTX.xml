@@ -4,15 +4,13 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans 
        http://www.springframework.org/schema/beans/spring-beans.xsd">
        
-   	 <bean id="yonsan" class="org.java.quiz01.Yonsan">
-   	 	
-   	 </bean>
-       	
+   	 <bean id="yonsan" class="org.java.quiz01.Yonsan"/>
+    
      <!-- 	
-	<bean id="scan" class="java.util.Scanner">
-     		<constructor-arg>
-     			<value type="java.io.InputStream">java.lang.System.in</value>
-     		</constructor-arg>
-	</bean>
+	 <bean id="scan" class="java.util.Scanner">
+   		<constructor-arg>
+   			<value type="java.io.InputStream">java.lang.System.in</value>
+   		</constructor-arg>
+	 </bean>
 	 -->
 </beans>
