@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop
+	   http://www.springframework.org/schema/aop/spring-aop-2.0.xsd">
+	   
+	   <bean id="student" class="com.java.aop04.Student"/>
+	   <bean id="teacher" class="com.java.aop04.Teacher"/>
+	   
+	   <bean id="proxy" class="com.java.aop04.Proxy"/>
+	   
+	  	<aop:config>
+	  		<aop:aspect ref="proxy">
+	  			<aop:pointcut id="publicMethod" expression="within(com.java.aop04.*)"/>
+	  			
+	  			<aop:before method="classRoom" pointcut-ref="publicMethod"/>
+	  			<aop:after-returning method="lunch" pointcut-ref="publicMethod"/>
+	  			<aop:after-throwing method="beExpelied" pointcut-ref="publicMethod" throwing="ex"/>
+	  			<aop:after method="goHome" pointcut-ref="publicMethod"/>
+	  		</aop:aspect>
+	  	</aop:config>
+</beans>

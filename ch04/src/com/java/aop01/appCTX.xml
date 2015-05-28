@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+       
+       <!-- 핵심 사항 -->
+       <bean id="baby" class="com.java.aop01.Baby"/>
+       <bean id="mom" class="com.java.aop01.Mom"/>
+       <bean id="dad" class="com.java.aop01.Dad"/>
+       
+       <!-- 공통 사항 -->
+       <bean id="proxy1" class="com.java.aop01.PersonProxy" >
+       		<constructor-arg ref="baby"/>
+       </bean>
+       
+       <bean id="proxy2" class="com.java.aop01.PersonProxy" >
+       		<constructor-arg ref="mom"/>
+       </bean>
+       
+       <bean id="proxy3" class="com.java.aop01.PersonProxy" >
+       		<constructor-arg ref="dad"/>
+       </bean>
+       
+</beans>
